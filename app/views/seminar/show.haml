@@ -1,0 +1,12 @@
+%h2 Seminar Details
+
+%h3 Name
+=@seminar.name
+
+%h4 Kategorien
+=@seminar.categories.map(&:name).join(", ")
+
+%h3 Datums
+=I18n.l(@seminar.date_from, :format => :short)
+=I18n.l(@seminar.date_to,   :format => :short)
+
