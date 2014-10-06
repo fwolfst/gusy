@@ -1,5 +1,4 @@
 require 'spec_helper'
-
 RSpec.describe "SeminarController" do
   describe "shows basic seminar list (with seminar) as index" do
     before do
@@ -21,7 +20,7 @@ RSpec.describe "SeminarController" do
     end
   end
 
-  describe "routes to seminar using short_url" do
+  describe "/seminar/show/:shorturl routes to seminar using short_url" do
     before do
       get "/seminar/show/testing_seminar"
     end
@@ -31,7 +30,7 @@ RSpec.describe "SeminarController" do
     end
   end
 
-  describe "shows seminar details" do
+  describe "/seminar/show/:id shows seminar details" do
     before do
       get "/seminar/show/1"
     end
