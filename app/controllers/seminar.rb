@@ -24,12 +24,13 @@ Gusy::App.controllers :seminar do
     render 'list'
   end
 
-  get :by_categories do
-    render 'list'
+  get :by_category, :with => :category do
+    @category = category(params['category']) || halt(404, "Category not found")
+    render 'by_category'
   end
 
   get :show, :with => :id do
-    @seminar = seminar params['id']
+    @seminar = seminar(params['id']) || halt(404, "Seminar not found")
     render 'show'
   end
 
@@ -37,4 +38,8 @@ Gusy::App.controllers :seminar do
     render 'list'
   end
 
+  get :referee, :with => :id do
+    @referee = Referee[params[:id]] || halt(404, "Referee not found")
+    render 'referee'
+  end
 end
