@@ -1,0 +1,8 @@
+%h1 Referent
+
+=@referee.full_name
+
+%h2 Seminare
+%ul
+  - @referee.seminars.each do |seminar|
+    %li=seminar_link seminar

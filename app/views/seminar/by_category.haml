@@ -1,0 +1,5 @@
+%h3 Kategorie #{@category.name}
+
+%ul
+  - @category.seminars.each do |seminar|
+    %li=seminar_link(seminar)
