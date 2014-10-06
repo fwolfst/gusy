@@ -4,6 +4,10 @@
     %title Gusy
   %body
     #header
+      #menu
+        %ul
+          %li=link_to 'Alle Seminare', url('seminar')
+          %li=link_to 'Kategorien', url('seminar', 'categories')
     #content
       = yield
     #sidebar
