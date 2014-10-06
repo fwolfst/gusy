@@ -18,6 +18,9 @@ module Gusy
           link_to seminar.name, url(:seminar, :show, seminar.id)
         end
       end
+      def seminar_year_month seminar
+        [seminar.date_from.year, seminar.date_from.month]
+      end
       def category id_or_shorturl
         Category.find(:id => id_or_shorturl) || Category.find(:shorturl => id_or_shorturl)
       end
