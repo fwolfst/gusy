@@ -3,8 +3,11 @@ Sequel.migration do
     create_table :seminars do
       primary_key :id
       String :name
+      String :shorturl
       DateTime :date_from
       DateTime :date_to
+      Text :description
+      Text :web_notice
     end
 
     create_table :seminars_categories do
@@ -16,5 +19,6 @@ Sequel.migration do
 
   down do
     drop_table :seminars
+    drop_table :seminars_categories
   end
 end
