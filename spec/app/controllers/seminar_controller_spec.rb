@@ -3,7 +3,6 @@ require 'spec_helper'
 RSpec.describe "SeminarController" do
   describe "shows basic seminar list (with seminar) as index" do
     before do
-      #@seminar = FactoryGirl.create(:seminar)
       get "/seminar/"
     end
   
@@ -14,7 +13,6 @@ RSpec.describe "SeminarController" do
 
   describe "shows seminar details" do
     before do
-      #@seminar = FactoryGirl.create(:seminar)
       get "/seminar/show/1"
     end
   
