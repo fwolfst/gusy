@@ -61,5 +61,9 @@ module Gusy
     #     render 'errors/500'
     #   end
     #
+
+    get '/' do
+      redirect url('seminar')
+    end
   end
 end
