@@ -1,3 +1,7 @@
 %ul
-  - @seminars.each do |seminar|
+  - @seminars.each_with_object([]) do |seminar, last_year_month|
+    - if last_year_month != seminar_year_month(seminar)
+      - last_year_month = seminar_year_month(seminar)
+      %li
+        %h2=I18n.t(:"date.month_names")[last_year_month[1]]
     %li=seminar_link(seminar)
