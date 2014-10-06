@@ -1,12 +1,36 @@
+%ul
+  - @seminar.web_notices.each do |notice|
+    %li #{notice['title']} #{notice['value']}
+
 %h2 Seminar Details
 
 %h3 Name
 =@seminar.name
 
 %h4 Kategorien
-=@seminar.categories.map(&:name).join(", ")
+%ul
+  =@seminar.categories.each do |category|
+    %li=category_link(category)
 
 %h3 Datums
 =I18n.l(@seminar.date_from, :format => :short)
 =I18n.l(@seminar.date_to,   :format => :short)
+
+%h3 Beschreibung
+=@seminar.description
+
+%h3 Referenten/Innen
+%ul
+  - @seminar.referees.each do |referee|
+    %li=referee_link referee
+
+#actions
+  =link_to "Anmeldung"
+
+%h4 Andere Seminare aus der Kategorie xyz
+- @seminar.categories.each do |category|
+  %h5=category.name
+  %ul
+    - category.seminars.each do |related_seminar|
+      %li= seminar_link(related_seminar)
 
