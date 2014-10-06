@@ -85,4 +85,15 @@ RSpec.describe "SeminarController" do
       expect(last_response.body).to include("Testing Seminar Advanced")
     end
   end
+
+  describe 'shows seminar list by date' do
+    before do
+      get '/seminar/by_date'
+    end
+    it 'shows the seminars sorted by date, as list' do
+      expect(last_response.body).to include("Dezember")
+      expect(last_response.body).to include("Februar")
+      expect(last_response.body).to include("Testing Seminar")
+    end
+  end
 end
