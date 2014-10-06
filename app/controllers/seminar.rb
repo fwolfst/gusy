@@ -35,6 +35,7 @@ Gusy::App.controllers :seminar do
   end
 
   get :by_date do
+    @seminars = Seminar.all
     render 'list'
   end
 
