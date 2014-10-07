@@ -98,6 +98,9 @@ RSpec.describe "SeminarController" do
       expect(last_response.body).to include("Februar")
       expect(last_response.body).to include("Testing Seminar")
     end
+    it 'therefore should not include the same name twice' do
+      expect(last_response.body.scan("Dezember").size).to eq 1
+    end
   end
 
   pending do
