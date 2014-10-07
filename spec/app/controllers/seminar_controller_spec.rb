@@ -103,6 +103,20 @@ RSpec.describe "SeminarController" do
     end
   end
 
+  describe "shows categories overview" do
+    before do
+      get "/seminar/categories"
+    end
+
+    it "containing the test category" do
+      expect(last_response.body).to include("Soulcleaning")
+    end
+
+    it "containing the category description" do
+      expect(last_response.body).to include("Ever felt tired?")
+    end
+  end
+
   pending do
     it 'uses pagination where necessary' do
     end
