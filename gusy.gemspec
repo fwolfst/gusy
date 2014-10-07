@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "gusy"
-  gem.require_paths = ["lib", "app"]
+  gem.require_paths = ["lib", "app", "models"]
   gem.version       = Gusy::VERSION
 
   gem.add_dependency "padrino-core"
