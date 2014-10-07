@@ -24,6 +24,11 @@ Gusy::App.controllers :seminar do
     render 'list'
   end
 
+  get :categories do
+    @categories = Category.all
+    render 'categories'
+  end
+
   get :by_category, :with => :category do
     @category = category(params['category']) || halt(404, "Category not found")
     render 'by_category'
