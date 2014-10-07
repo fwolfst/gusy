@@ -8,8 +8,9 @@ module Gusy
       include Padrino::Helpers::TagHelpers
       include Padrino::Helpers::OutputHelpers
 
+      # Finds seminar by id, shorturl or uuid
       def seminar id_or_shorturl
-        Seminar.find(:id => id_or_shorturl) || Seminar.find(:shorturl => id_or_shorturl)
+        Seminar.find(:id => id_or_shorturl) || Seminar.find(:shorturl => id_or_shorturl) || Seminar.find(:uuid => id_or_shorturl)
       end
       def seminar_link seminar
         if seminar.shorturl
