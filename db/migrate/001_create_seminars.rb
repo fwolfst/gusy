@@ -4,6 +4,7 @@ Sequel.migration do
       primary_key :id
       String :name
       String :shorturl
+      String :uuid
       DateTime :date_from
       DateTime :date_to
       Text :description

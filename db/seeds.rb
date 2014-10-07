@@ -4,8 +4,9 @@ seminar_1  = Seminar.create(:name => "Testing Seminar",
                             :date_from => DateTime.new(2014, 12, 31, 9, 9),
                             :date_to => DateTime.new(2015, 01, 01, 10, 10),
                             :shorturl => 'testing_seminar',
+                            :uuid => "uuid-like-string",
                             :description => "learn everything you want",
-                           :web_notice => '[{"title": "Preis", "value":"10 Euro"}]')
+                            :web_notice => '[{"title": "Preis", "value":"10 Euro"}]')
 
 category_1 = Category.create(:name => "Soulcleaning", :shorturl => 'soulcleaning')
 seminar_1.add_category category_1
