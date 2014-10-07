@@ -8,7 +8,10 @@ seminar_1  = Seminar.create(:name => "Testing Seminar",
                             :description => "learn everything you want",
                             :web_notice => '[{"title": "Preis", "value":"10 Euro"}]')
 
-category_1 = Category.create(:name => "Soulcleaning", :shorturl => 'soulcleaning')
+category_1 = Category.create(:name => "Soulcleaning",
+                             :shorturl => 'soulcleaning',
+                             :description => "Ever felt tired?")
+
 seminar_1.add_category category_1
 seminar_1.save
 
