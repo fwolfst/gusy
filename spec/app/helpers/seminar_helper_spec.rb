@@ -5,8 +5,17 @@ RSpec.describe "Gusy::App::SeminarHelper" do
   before { helpers.extend Gusy::App::SeminarHelper }
   subject { helpers }
 
-  it "should return nil for invalid seminar" do
-    expect(subject.seminar('boo')).to be_nil
+  describe "#seminar" do
+    it "should return nil for invalid seminar" do
+      expect(subject.seminar('boo')).to be_nil
+    end
+
+    it "should return a seminar based on its short url, id or uuid" do
+      s = Seminar[1]
+      expect(subject.seminar(1)).to eq s
+      expect(subject.seminar("uuid-like-string")).to eq s
+      expect(subject.seminar("testing_seminar")).to eq s
+    end
   end
 
   describe "#seminar_year_month" do
