@@ -99,4 +99,9 @@ RSpec.describe "SeminarController" do
       expect(last_response.body).to include("Testing Seminar")
     end
   end
+
+  pending do
+    it 'uses pagination where necessary' do
+    end
+  end
 end
