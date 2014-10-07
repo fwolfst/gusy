@@ -12,6 +12,8 @@ module Gusy
       def seminar id_or_shorturl
         Seminar.find(:id => id_or_shorturl) || Seminar.find(:shorturl => id_or_shorturl) || Seminar.find(:uuid => id_or_shorturl)
       end
+
+      # Return HTML for a link to seminar (with name)
       def seminar_link seminar
         if seminar.shorturl
           link_to seminar.name, url(:seminar, :show, seminar.shorturl)
