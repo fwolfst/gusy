@@ -69,6 +69,10 @@ RSpec.describe "SeminarController" do
     it "containing the test seminar" do
       expect(last_response.body).to include("Testing Seminar")
     end
+
+    it "containing the category description" do
+      expect(last_response.body).to include("Ever felt tired?")
+    end
   end
 
   describe "shows Referee pages" do
