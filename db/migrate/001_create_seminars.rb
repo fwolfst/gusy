@@ -7,6 +7,7 @@ Sequel.migration do
       String :uuid
       DateTime :date_from
       DateTime :date_to
+      Text :cancellation_conditions
       Text :description
       Text :web_notice
     end

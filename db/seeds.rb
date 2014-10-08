@@ -6,7 +6,8 @@ seminar_1  = Seminar.create(:name => "Testing Seminar",
                             :shorturl => 'testing_seminar',
                             :uuid => "uuid-like-string",
                             :description => "learn everything you want",
-                            :web_notice => '[{"title": "Preis", "value":"10 Euro"}]')
+                            :web_notice => '[{"title": "Preis", "value":"10 Euro"}]',
+                            :cancellation_conditions => 'no problem, three days before')
 
 category_1 = Category.create(:name => "Soulcleaning",
                              :shorturl => 'soulcleaning',

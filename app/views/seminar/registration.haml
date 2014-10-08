@@ -3,18 +3,20 @@
 %h2 Seminar
 = @seminar.name
 
+
 = form_for @registration, '/seminar/register', :id => 'register' do |f|
   = f.error_messages
   = f.text_field_block :firstname, :caption => 'Vorname'
-  = f.text_field_block :lastname, :caption => 'Nachname'
+  = f.text_field_block :lastname,  :caption => 'Nachname'
   = f.text_field_block :street_and_no, :caption => 'Straße und Hausnummer'
-  = f.text_field_block :zip, :caption => 'PLZ'
-  = f.text_field_block :city, :caption => 'Ort'
+  = f.text_field_block :zip,     :caption => 'PLZ'
+  = f.text_field_block :city,    :caption => 'Ort'
   = f.text_field_block :country, :caption => 'Land'
-  = f.text_field_block :email, :caption => 'E-Mail'
-  = f.text_field_block :phone, :caption => 'Telefon'
-  = f.text_field_block :mobile, :caption => 'Handy'
+  = f.text_field_block :email,   :caption => 'E-Mail'
+  = f.text_field_block :phone,   :caption => 'Telefon'
+  = f.text_field_block :mobile,  :caption => 'Handy'
   = f.text_field_block :comment, :caption => 'Bemerkungen'
+  = @seminar.cancellation_conditions
   = f.check_box_block :accept_terms, :caption => 'AGB'
   = f.check_box_block :accept_ride_sharing, :caption => 'Mitfahrbörse'
   = f.check_box_block :accept_future_notice, :caption => 'Zukünftiges'

@@ -99,6 +99,13 @@ RSpec.describe "SeminarController" do
     end
   end
 
+  describe 'shows registration page' do
+    before { get '/seminar/register/1' }
+    it 'shows the cancellation conditions' do
+      expect(last_response.body).to include('three days before')
+    end
+  end
+
   pending do
     it 'uses pagination where necessary' do
     end
