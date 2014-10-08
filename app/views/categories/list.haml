@@ -1,0 +1,5 @@
+%ul
+  - @categories.each do |category|
+    %li
+      =category_link category
+      =category.description
