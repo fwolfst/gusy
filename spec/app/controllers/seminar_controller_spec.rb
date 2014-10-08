@@ -75,6 +75,16 @@ RSpec.describe "SeminarController" do
     end
   end
 
+  describe "shows Referees overview" do
+    before do
+      get '/seminar/referees'
+    end
+
+    it 'shows the full name of referees' do
+      expect(last_response.body).to include('John Doe')
+    end
+  end
+
   describe 'shows seminar list by date' do
     before do
       get '/seminar/by_date'
