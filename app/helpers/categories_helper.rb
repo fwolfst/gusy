@@ -15,9 +15,9 @@ module Gusy
       # HTML link to category (displays name)
       def category_link category
         if category.shorturl
-          link_to category.name, url(:seminar, :show, category.shorturl)
+          link_to category.name, url(:categories, :show, category.shorturl)
         else
-          link_to category.name, url(:seminar, :show, category.id)
+          link_to category.name, url(:categories, :show, category.id)
         end
       end
     end
