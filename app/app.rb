@@ -5,6 +5,12 @@ module Gusy
 
     enable :sessions
 
+    ## Instance Configuration
+    set :config, YAML::load(File.open("#{Padrino.root}/config/gusy.conf.yml"))
+
+    ## Mailer config
+    set :delivery_method, :smtp => settings.config['smtp']
+
     ##
     # Caching support.
     #
