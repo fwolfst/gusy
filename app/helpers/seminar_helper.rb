@@ -27,30 +27,8 @@ module Gusy
         [seminar.date_from.year, seminar.date_from.month]
       end
 
-      # Fetch category by id or shorturl
-      def category id_or_shorturl
-        Category.find(:id => id_or_shorturl) || Category.find(:shorturl => id_or_shorturl)
-      end
-
-      # HTML link to category (displays name)
-      def category_link category
-        if category.shorturl
-          link_to category.name, url(:seminar, :by_category, category.shorturl)
-        else
-          link_to category.name, url(:seminar, :by_category, category.id)
-        end
-      end
-
       def referee_link referee
         link_to referee.full_name, url(:seminar, :referee, referee.id)
-      end
-
-      def get_or_create_category name
-        Category.find(:name => name) || Category.create(:name => name)
-      end
-
-      def category_link category
-        link_to category.name, url(:seminar, :by_category, category.id)
       end
     end
 
