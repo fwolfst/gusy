@@ -46,6 +46,10 @@ module Gusy
       link_to referee.full_name, url(:seminar, :referee, referee.id)
     end
 
+    def get_or_create_category name
+      Category.find(:name => name) || Category.create(:name => name)
+    end
+
     helpers SeminarHelper
   end
 end
