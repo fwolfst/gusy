@@ -43,7 +43,8 @@ Gusy::App.controllers :seminar do
     render 'referees'
   end
 
-  get '/seminar/:id/register' do
+  get :register, :with => :id do
+    @registration = Registration.new
     @seminar = seminar params[:id]
     render 'registration'
   end

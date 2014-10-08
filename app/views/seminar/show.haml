@@ -25,7 +25,7 @@
     %li=referee_link referee
 
 #actions
-  =link_to "Anmeldung"
+  =link_to "Anmeldung", url(:seminar, :register, :id => @seminar.id)
 
 - @seminar.categories.each do |category|
   %h4 Andere Seminare aus der Kategorie #{category.name}
