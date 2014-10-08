@@ -1,0 +1,9 @@
+smtp:
+  address: siebenlinden.de
+  port: 1111
+  user_name: author
+  password: felixauth
+  authentication: plain
+  enable_starttls_auto: true
+saraswati:
+  couch_url: http://localhost:5984/fk_seminar
