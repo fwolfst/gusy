@@ -1,5 +1,4 @@
 Gusy::App.controllers :seminar do
-  
   # get :index, :map => '/foo/bar' do
   #   session[:foo] = 'bar'
   #   render 'index'
@@ -22,16 +21,6 @@ Gusy::App.controllers :seminar do
   get :index do
     @seminars = Seminar.all
     render 'list'
-  end
-
-  get :categories do
-    @categories = Category.all
-    render 'categories'
-  end
-
-  get :by_category, :with => :category do
-    @category = category(params['category']) || halt(404, "Category not found")
-    render 'by_category'
   end
 
   get :show, :with => :id do
