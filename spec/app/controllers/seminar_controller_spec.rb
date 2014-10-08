@@ -61,20 +61,6 @@ RSpec.describe "SeminarController" do
     end
   end
 
-  describe "shows category overview" do
-    before do
-      get "/seminar/by_category/soulcleaning"
-    end
-
-    it "containing the test seminar" do
-      expect(last_response.body).to include("Testing Seminar")
-    end
-
-    it "containing the category description" do
-      expect(last_response.body).to include("Ever felt tired?")
-    end
-  end
-
   describe "shows Referee pages" do
     before do
       get '/seminar/referee/1'
@@ -100,20 +86,6 @@ RSpec.describe "SeminarController" do
     end
     it 'therefore should not include the same name twice' do
       expect(last_response.body.scan("Dezember").size).to eq 1
-    end
-  end
-
-  describe "shows categories overview" do
-    before do
-      get "/seminar/categories"
-    end
-
-    it "containing the test category" do
-      expect(last_response.body).to include("Soulcleaning")
-    end
-
-    it "containing the category description" do
-      expect(last_response.body).to include("Ever felt tired?")
     end
   end
 
