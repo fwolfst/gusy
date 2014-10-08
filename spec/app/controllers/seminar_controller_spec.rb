@@ -103,4 +103,15 @@ RSpec.describe "SeminarController" do
     it 'uses pagination where necessary' do
     end
   end
+
+  pending do
+    it 'lets registration fail when terms are not accepted' do
+    end
+    it 'lets registration fail when wrong seminar is selected' do
+    end
+    it 'validates the registration' do
+    end
+    it 'shows flash and success after successfull registration' do
+    end
+  end
 end
