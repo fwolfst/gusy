@@ -9,6 +9,10 @@
           %li=link_to 'Alle Seminare', url(:seminar, :index)
           %li=link_to 'Kategorien', url(:categories, :index)
           %li=link_to 'Referenten', url(:seminar, :referees)
+    #messages
+      = flash_tag :notice
+      = flash_tag :failure
+      = flash_tag :success
     #content
       = yield
     #sidebar
