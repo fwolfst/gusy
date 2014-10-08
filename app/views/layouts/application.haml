@@ -6,8 +6,9 @@
     #header
       #menu
         %ul
-          %li=link_to 'Alle Seminare', url('seminar', 'index')
-          %li=link_to 'Kategorien', url('categories', 'index')
+          %li=link_to 'Alle Seminare', url(:seminar, :index)
+          %li=link_to 'Kategorien', url(:categories, :index)
+          %li=link_to 'Referenten', url(:seminar, :referees)
     #content
       = yield
     #sidebar

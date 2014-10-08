@@ -37,4 +37,14 @@ Gusy::App.controllers :seminar do
     @referee = Referee[params[:id]] || halt(404, "Referee not found")
     render 'referee'
   end
+
+  get :referees do
+    @referees = Referee.all
+    render 'referees'
+  end
+
+  get '/seminar/:id/register' do
+    @seminar = seminar params[:id]
+    render 'registration'
+  end
 end
