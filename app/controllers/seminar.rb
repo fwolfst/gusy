@@ -39,7 +39,7 @@ Gusy::App.controllers :seminar do
   end
 
   get :referees do
-    @referees = Referee.all
+    @referees = Referee.order(:last_name)
     render 'referees'
   end
 
