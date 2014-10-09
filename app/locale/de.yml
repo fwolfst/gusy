@@ -1,11 +1,12 @@
 de:
   time:
     formats:
-      short: "%d.%m.%Y"
+      short: "%d.%m. %Y"
+      monthday: "%d"
   date:
     formats:
-      short: "%d.%m.%Y"
+      short: "%d.%m. %Y"
   datetime:
     formats:
-      short: "%d.%m.%Y"
+      short: "%d.%m. %Y"
 
