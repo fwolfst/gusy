@@ -5,3 +5,8 @@ class Referee < Sequel::Model
     "#{first_name} #{last_name}"
   end
 end
+
+class Qualification < Sequel::Model(:seminars_referees)
+  many_to_one :seminar
+  many_to_one :referee
+end
