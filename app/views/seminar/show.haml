@@ -2,25 +2,23 @@
   - @seminar.web_notices.each do |notice|
     %li #{notice['title']} #{notice['value']}
 
-%h2 Seminar Details
+%h2.ui.header="Seminar: #{@seminar.name}"
 
-%h3 Name
-=@seminar.name
 
-%h4 Kategorien
-%ul
-  - @seminar.categories.each do |category|
-    %li=category_link(category)
+%h5.ui.header Kategorien
+- @seminar.categories.each do |category|
+  .ui.label=category_link(category)
 
-%h3 Datums
+%h4.ui.header Datum
 =I18n.l(@seminar.date_from, :format => :short)
+bis
 =I18n.l(@seminar.date_to,   :format => :short)
 
-%h3 Beschreibung
-=@seminar.description
+%h3.ui.header Beschreibung
+!= @seminar.description
 
-%h3 Referenten/Innen
-%ul
+%h3.ui.header Referenten/Innen
+%ul.ui.list
   - @seminar.referees.each do |referee|
     %li=referee_link referee
 
@@ -29,13 +27,13 @@
 
 - @seminar.categories.each do |category|
   %h4 Andere Seminare aus der Kategorie #{category.name}
-  %ul
+  %ul.ui.list
     - category.seminars.each do |related_seminar|
       %li= seminar_link(related_seminar)
 
 - @seminar.referees.each do |referee|
   %h4 Andere Seminare von #{referee.full_name}
-  %ul
+  %ul.ui.list
     - (referee.seminars - [@seminar]).each do |seminar|
       %li=seminar_link seminar
 

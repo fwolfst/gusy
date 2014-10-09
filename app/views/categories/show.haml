@@ -1,7 +1,15 @@
-%h3 Kategorie #{@category.name}
+%h2 Seminare der Kategorie #{@category.name}
 
 %p=@category.description
 
-%ul
+.ui.divided.list
   - @category.seminars.each do |seminar|
-    %li=seminar_link(seminar)
+    .item
+      .content
+        %a.header{:href=>url(:seminar, :show, seminar.id)}=seminar.name
+        .description
+          .ui.label
+            =I18n.l(seminar.date_from, :format => :short)
+            ="-"
+            =I18n.l(seminar.date_to, :format => :short)
+          (mit "#{seminar.referees.map(&:full_name).join(" und ")}")

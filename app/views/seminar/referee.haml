@@ -1,8 +1,12 @@
-%h1 Referent
+%h2=@referee.full_name
 
-=@referee.full_name
-
-%h2 Seminare
-%ul
+%h3 Referent für folgende Seminare
+%ul.ui.list
   - @referee.seminars.each do |seminar|
-    %li=seminar_link seminar
+    %li.ui
+      =I18n.l(seminar.date_from, :format => :short)
+      bis
+      =I18n.l(seminar.date_from, :format => :short)
+      =seminar_link seminar
+      (mit #{(seminar.referees - [@referee]).map(&:full_name).join(" und ")})
+
