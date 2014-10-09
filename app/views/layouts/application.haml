@@ -2,13 +2,17 @@
 %html
   %head
     %title Gusy
-  %body
+    %link(rel="stylesheet" type="text/css" class="ui" href="/stylesheets/semantic.min.css")
+    %link(rel="stylesheet" type="text/css" class="ui" href="/stylesheets/semantic.css")
+    %link(rel="stylesheet" type="text/css" class="ui" href="/stylesheets/gusy.css")
+    %script(src="/javascripts/semantic.min.js")
+    %script(src="/javascripts/semantic.js")
+  %body.ui
     #header
-      #menu
-        %ul
-          %li=link_to 'Alle Seminare', url(:seminar, :index)
-          %li=link_to 'Kategorien', url(:categories, :index)
-          %li=link_to 'Referenten', url(:seminar, :referees)
+      #menu.ui.menu
+        =link_to 'Alle Seminare', url(:seminar, :index), :class=>"item"
+        =link_to 'Kategorien', url(:categories, :index), :class=>"item"
+        =link_to 'Referenten', url(:seminar, :referees), :class=>"item"
     #messages
       = flash_tag :notice
       = flash_tag :failure
