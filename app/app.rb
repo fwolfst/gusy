@@ -67,6 +67,13 @@ module Gusy
     #     render 'errors/500'
     #   end
     #
+    before do
+      if request.path_info =~ /^\/(#{I18n.available_locales.join('|')})(.*)/
+          I18n.locale = $1.to_sym
+          logger.info ("set locale #{I18n.locale}")
+          redirect $2
+      end
+    end
 
     get '/' do
       redirect url('seminar')
