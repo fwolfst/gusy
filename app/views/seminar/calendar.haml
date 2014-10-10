@@ -1,0 +1,8 @@
+#seminars(style="margin:1em;")
+  - @seminars.group_by {|seminar| seminar_year_month(seminar)}. each do |time, seminars|
+    %h2.calendar
+      =I18n.t(:"date.month_names")[time[1]]
+      =time[0]
+    %ul.calendar
+      - seminars.each do |seminar|
+        %li=seminar_link seminar

@@ -23,6 +23,16 @@ Gusy::App.controllers :seminar do
     render 'list'
   end
 
+  get :calendar do
+    @seminars = Seminar.where{date_from > Date.today}.all
+    render 'calendar', :layout => 'iframeable'
+  end
+
+  get :next_3 do
+    @seminars = Seminar.where{date_from > Date.today}.limit(3)
+    render 'next_3', :layout => 'iframeable'
+  end
+
   get :show, :with => :id do
     @seminar = seminar(params['id']) || halt(404, "Seminar not found")
     render 'show'

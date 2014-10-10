@@ -69,6 +69,19 @@ RSpec.describe "SeminarController" do
     end
   end
 
+  describe "/seminar/calendar shows Calendar" do
+    before do
+      I18n.locale = :de
+      get '/seminar/calendar'
+    end
+    it 'with future dates' do
+      expect(last_response.body).to include ("Advanced")
+    end
+    it 'with month names' do
+      expect(last_response.body).to include ("Februar")
+    end
+  end
+
   describe "shows Referee pages" do
     before do
       get '/seminar/referee/1'

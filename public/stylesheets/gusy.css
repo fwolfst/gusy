@@ -1,3 +1,18 @@
 body {
   font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
+  background-color: azure;
 }
+
+h2.calendar {
+  font-size: 12px;
+}
+ul.calendar {
+  font-size: 20px;
+}
+ul.calendar li {
+  list-style: none;
+}
+ul.calendar li a {
+  color: #f60;
+}
+
