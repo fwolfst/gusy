@@ -1,39 +1,51 @@
-%ul
-  - @seminar.web_notices.each do |notice|
-    %li #{notice['title']} #{notice['value']}
-
-%h2.ui.header="Seminar: #{@seminar.name}"
+.ui.one.column.page.grid
+  .column
+    %h2.ui.header="Seminar: #{@seminar.name}"
 
 
-%h5.ui.header Kategorien
-- @seminar.categories.each do |category|
-  .ui.label=category_link(category)
+.ui.two.column.page.grid
+  .column
+    .ui.segment
+      %h5.ui.header=I18n.t('seminars.categories')
+      - @seminar.categories.each do |category|
+        .ui.label=category_link(category)
 
-%h4.ui.header Datum
-=I18n.l(@seminar.date_from, :format => :short)
-bis
-=I18n.l(@seminar.date_to,   :format => :short)
+    .ui.segment
+      %h4.ui.header=I18n.t('dates')
+      =I18n.l(@seminar.date_from, :format => :short)
+      bis
+      =I18n.l(@seminar.date_to,   :format => :short)
 
-%h3.ui.header Beschreibung
-!= @seminar.description
+    .ui.segment
+      %h3.ui.header=I18n.t('seminars.description')
+      != @seminar.description
+      
+      %h3.ui.header Referenten/Innen
+      %ul.ui.list
+        - @seminar.referees.each do |referee|
+          %li=referee_link referee
+          =Qualification.find(:referee => referee, :seminar => @seminar).qualification_text
+      
+      #actions
+        =link_to "Anmeldung", url(:seminar, :register, :id => @seminar.id)
 
-%h3.ui.header Referenten/Innen
-%ul.ui.list
-  - @seminar.referees.each do |referee|
-    %li=referee_link referee
+    .ui.segment
+      = render_partial 'seminar/registration'# :engine => 'haml'
 
-#actions
-  =link_to "Anmeldung", url(:seminar, :register, :id => @seminar.id)
-
-- @seminar.categories.each do |category|
-  %h4 Andere Seminare aus der Kategorie #{category.name}
-  %ul.ui.list
-    - category.seminars.each do |related_seminar|
-      %li= seminar_link(related_seminar)
-
-- @seminar.referees.each do |referee|
-  %h4 Andere Seminare von #{referee.full_name}
-  %ul.ui.list
-    - (referee.seminars - [@seminar]).each do |seminar|
-      %li=seminar_link seminar
-
+  #side_column.column
+    .ui.segment
+      %ul
+        - @seminar.web_notices.each do |notice|
+          %li #{notice['title']} #{notice['value']}
+    .ui.segment
+      - @seminar.categories.each do |category|
+        %h4 Andere Seminare aus der Kategorie #{category.name}
+        %ul.ui.list
+          - category.seminars.each do |related_seminar|
+            %li= seminar_link(related_seminar)
+      
+      - @seminar.referees.each do |referee|
+        %h4 Andere Seminare von #{referee.full_name}
+        %ul.ui.list
+          - (referee.seminars - [@seminar]).each do |seminar|
+            %li=seminar_link seminar
