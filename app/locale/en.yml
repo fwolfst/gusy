@@ -2,10 +2,27 @@ en:
   time:
     formats:
       short: "%y/%m/%d"
+      monthday: "%d"
   date:
     formats:
       short: "%d/%m/%Y"
   datetime:
     formats:
       short: "%d/%m/%Y"
-
+  to: to
+  dates: Datum
+  more: more
+  with: with
+  and: and
+  search: search
+  category: Category
+  language: Language
+  seminars:
+    all: All Seminars
+    categories: Categories
+    description: Beschreibung
+    referees: Referees
+    registration: Registration
+    seminars_of_category: Seminars of category
+  referee:
+    for_following_seminars: Referee for following seminars

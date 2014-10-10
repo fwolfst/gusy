@@ -9,4 +9,20 @@ de:
   datetime:
     formats:
       short: "%d.%m. %Y"
-
+  to: bis
+  dates: Datum
+  more: mehr
+  category: Kategorie
+  with: mit
+  and: und
+  search: Suche
+  language: Sprache
+  seminars:
+    all: Alle Seminare
+    categories: Kategorien
+    description: Beschreibung
+    referees: Referenten/Innen
+    seminars_of_category: Seminare der Kategorie
+    registration: Anmeldung
+  referee:
+    for_following_seminars: Referent für folgende Seminare
