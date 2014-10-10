@@ -33,6 +33,15 @@ Gusy::App.controllers :seminar do
     render 'list'
   end
 
+  get :search do
+    @seminars = Seminar.where(Sequel.ilike(:description, "%#{params[:search_term]}%")).all
+    #Alternative:
+    #@seminars = Seminar.grep(:description, "%#{params[:search_term]}%").all
+    flash[:success] = "Showing matching seminars"
+    flash.now
+    render 'list'
+  end
+
   get :referee, :with => :id do
     @referee = Referee[params[:id]] || halt(404, "Referee not found")
     render 'referee'
