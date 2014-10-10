@@ -1,4 +1,6 @@
-%h2 Seminare der Kategorie #{@category.name}
+%h2
+  = I18n.t('seminars.seminars_of_category')
+  = @category.name
 
 %p=@category.description
 
@@ -7,9 +9,10 @@
     .item
       .content
         %a.header{:href=>url(:seminar, :show, seminar.id)}=seminar.name
-        .description
-          .ui.label
-            =I18n.l(seminar.date_from, :format => :short)
-            ="-"
-            =I18n.l(seminar.date_to, :format => :short)
-          (mit "#{seminar.referees.map(&:full_name).join(" und ")}")
+      .description
+        .ui.label
+          =I18n.l(seminar.date_from, :format => :short)
+          ="-"
+          =I18n.l(seminar.date_to, :format => :short)
+        -if !seminar.referees.empty?
+          (#{I18n.t('with')} #{seminar.referees.map(&:full_name).join(' ' + I18n.t('and') + ' ')})
