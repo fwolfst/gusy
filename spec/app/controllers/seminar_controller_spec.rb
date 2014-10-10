@@ -10,6 +10,13 @@ RSpec.describe "SeminarController" do
     end
   end
 
+  describe 'the whole app sets locale by route inspection (and redirect)' do
+    before { get "/en/seminar/show/1" }
+    it 'redirects to english part' do
+      expect(last_response.status).to eq 302
+    end
+  end
+
   describe "halts for invalid id/shorturl" do
     before do
       get "/seminar/show/no_seminar"
@@ -32,6 +39,7 @@ RSpec.describe "SeminarController" do
 
   describe "/seminar/show/:id shows seminar details" do
     before do
+      I18n.locale = :de
       get "/seminar/show/1"
     end
 
@@ -42,7 +50,7 @@ RSpec.describe "SeminarController" do
       expect(last_response.body).to include("Soulcleaning")
     end
     it "containing the seminar date (german format)" do
-      expect(last_response.body).to include("31.12.2014")
+      expect(last_response.body).to include("31.12. 2014")
     end
     it "containing the seminar description" do
       expect(last_response.body).to include("everything you")
@@ -85,10 +93,13 @@ RSpec.describe "SeminarController" do
     end
   end
 
+
   describe 'shows seminar list by date' do
     before do
+      I18n.locale = :de
       get '/seminar/by_date'
     end
+
     it 'shows the seminars sorted by date, as list' do
       expect(last_response.body).to include("Dezember")
       expect(last_response.body).to include("Februar")
@@ -106,15 +117,20 @@ RSpec.describe "SeminarController" do
     end
   end
 
-  describe 'searches in categories, descriptions, referees, seminar names' do
-    before { get '/seminar?search=%22oul%22' }
+  pending do
+    describe 'searches in categories, referees, qualifications, seminar names' do
+      fail
+    end
+  end
+  describe 'searches in seminar descriptions' do
+    before { get '/seminar/search?search_term=coo' }
     it 'finds' do
-      expect(last_response.body).to include('three days before')
+      expect(last_response.body).to include('Weihnachtsseminar')
     end
   end
 
   describe 'successless search' do
-    before { get '/seminar?search=%22oooooooul%22' }
+    before { get '/seminar/search?search_term=%22oooooooul%22' }
     it 'shows no hits' do
       expect(last_response.body).to include('Sorry, no')
     end
@@ -133,6 +149,9 @@ RSpec.describe "SeminarController" do
     it 'validates the registration' do
     end
     it 'shows flash and success after successfull registration' do
+    end
+    it 'shows referees qualification' do
+      expect(last_response.body).to include('is trainer for')
     end
   end
 end

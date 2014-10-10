@@ -14,12 +14,6 @@ RSpec.configure do |conf|
   #end
 end
 
-# Init FactoryGirl
-#FactoryGirl.definition_file_paths = [
-#  File.join(Padrino.root, 'spec', 'factories')
-#  ]
-#FactoryGirl.find_definitions
-
 # You can use this method to custom specify a Rack app
 # you want rack-test to invoke:
 #
@@ -33,3 +27,4 @@ def app(app = nil, &blk)
   @app ||= block_given? ? app.instance_eval(&blk) : app
   @app ||= Padrino.application
 end
+
