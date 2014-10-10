@@ -106,6 +106,20 @@ RSpec.describe "SeminarController" do
     end
   end
 
+  describe 'searches in categories, descriptions, referees, seminar names' do
+    before { get '/seminar?search=%22oul%22' }
+    it 'finds' do
+      expect(last_response.body).to include('three days before')
+    end
+  end
+
+  describe 'successless search' do
+    before { get '/seminar?search=%22oooooooul%22' }
+    it 'shows no hits' do
+      expect(last_response.body).to include('Sorry, no')
+    end
+  end
+
   pending do
     it 'uses pagination where necessary' do
     end

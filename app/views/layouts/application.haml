@@ -14,9 +14,15 @@
         =link_to 'Kategorien', url(:categories, :index), :class=>"item"
         =link_to 'Referenten', url(:seminar, :referees), :class=>"item"
     #messages
-      = flash_tag :notice
-      = flash_tag :failure
-      = flash_tag :success
+      - if flash[:notice]
+        .ui.message
+          .header=flash[:notice]
+      - if flash[:success]
+        .ui.success.message
+          .header=flash[:success]
+      - if flash[:failure]
+        .ui.error.message
+          .header=flash[:failure]
     #content
       = yield
     #sidebar
