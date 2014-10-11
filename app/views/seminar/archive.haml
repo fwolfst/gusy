@@ -1,0 +1,9 @@
+#seminars(style="margin:1em;")
+  - @seminars.group_by {|seminar| seminar_year_month(seminar)}. each do |time, seminars|
+    %h2.ui.dividing.header
+      =I18n.t(:"date.month_names")[time[1]]
+      =time[0]
+    %ul.ui.list
+    - seminars.each do |seminar|
+      %li.ui
+        =partial 'seminar/seminar_link', :locals => {:seminar => seminar}
