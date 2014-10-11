@@ -11,6 +11,9 @@ module Gusy
     ## Mailer config
     set :delivery_method, :smtp => settings.config['smtp']
 
+    # We want to allow iframe inclusion
+    set :protection, :except => :frame_options
+
     ##
     # Caching support.
     #
