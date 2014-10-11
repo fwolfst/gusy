@@ -2,6 +2,7 @@ en:
   time:
     formats:
       short: "%y/%m/%d"
+      daymonth: "%m.%d."
       monthday: "%d"
   date:
     formats:
@@ -19,10 +20,12 @@ en:
   language: Language
   seminars:
     all: All Seminars
+    archive: Archive
     categories: Categories
     description: Beschreibung
     referees: Referees
     registration: Registration
+    further_infos: Weitere Informationen
     seminars_of_category: Seminars of category
   referee:
     for_following_seminars: Referee for following seminars
