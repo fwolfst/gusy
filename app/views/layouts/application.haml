@@ -3,30 +3,43 @@
   %head
     %title Gusy
     %link(rel="stylesheet" type="text/css" class="ui" href="/stylesheets/semantic.min.css")
-    %link(rel="stylesheet" type="text/css" class="ui" href="/stylesheets/semantic.css")
     %link(rel="stylesheet" type="text/css" class="ui" href="/stylesheets/gusy.css")
+    %script(src="/javascripts/jquery-2.1.1.min.js")
     %script(src="/javascripts/semantic.min.js")
-    %script(src="/javascripts/semantic.js")
   %body.ui
     #topheader
-      #menu.ui.menu
+      -#.ui.dropdown
+      -#  men
+      -#  %i.icon.mail
+      -#  #sm.ui.menu
+      -#    .item
+      -#      blo
+      -#    %a.item(href="") bla
+      -#    %a.item(href="url") bla
+      -#    %a.item bla
+      -#-#:javascript
+      -#-#  $('.ui.dropdown')
+      -#-#    .dropdown()
+      -#-#    ;
+
+      #menu.ui.menu.tiered
         =link_to I18n.t('seminars.all'), url(:seminar, :index), :class=>"item"
         =link_to I18n.t('seminars.categories'), url(:categories, :index), :class=>"item"
         =link_to I18n.t('seminars.referees'), url(:seminar, :referees), :class=>"item"
+        =link_to I18n.t('seminars.archive'), url(:seminar, :archive, :year => 2014, :month => 12), :class=>"item"
         .right.menu
-          .ui.dropdown.link.item
-            = I18n.t('language')
-            %i.dropdown.icon
-            .menu.ui.transition.hidden
-              %a.item bla
-              %a.item bla
-              %a.item bla
-          -#  =link_to "#{I18n.locale}", :class=>"item"
+          = I18n.t('language')
+          - I18n.available_locales.each do |locale|
+            %a.item(href="/#{locale}/#{request.path_info}")=locale
           .item
             %form.item(action="/seminar/search" method="GET" class="" style="padding:0px;margin:0px")
               .ui.icon.input.item
                 %input{:placeholder => I18n.t('search'), :name =>"search_term"}
-              %i.search.link.icon
+                  %i.search.link.icon
+        -#.ui.sub.menu
+        -#  %a.item="a"
+        -#  %a.item="a"
+        -#  %a.item="a"
     #messages
       - if flash[:notice]
         .ui.message
