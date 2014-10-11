@@ -5,47 +5,51 @@
 
 .ui.two.column.page.grid
   .column
-    .ui.segment
-      %h5.ui.header=I18n.t('seminars.categories')
+    %h5.ui.header.attached.top=I18n.t('seminars.categories')
+    .ui.segment.attached
       - @seminar.categories.each do |category|
         .ui.label=category_link(category)
 
-    .ui.segment
-      %h4.ui.header=I18n.t('dates')
+    %h5.ui.header.attached.top=I18n.t('dates')
+    .ui.segment.attached
       =I18n.l(@seminar.date_from, :format => :short)
       bis
       =I18n.l(@seminar.date_to,   :format => :short)
 
-    .ui.segment
-      %h3.ui.header=I18n.t('seminars.description')
+    %h4.ui.header.attached.top=I18n.t('seminars.description')
+    .ui.segment.attached
       != @seminar.description
       
-      %h3.ui.header Referenten/Innen
+      %h4.ui.header Referenten/Innen
       %ul.ui.list
         - @seminar.referees.each do |referee|
           %li=referee_link referee
           =Qualification.find(:referee => referee, :seminar => @seminar).qualification_text
-      
-      #actions
-        =link_to "Anmeldung", url(:seminar, :register, :id => @seminar.id)
 
-    .ui.segment
-      = render_partial 'seminar/registration'# :engine => 'haml'
+    - if @seminar.date_from >= Date.today
+      %h3.blue.ui.header.attached.inverted.top=I18n.t('seminars.registration')
+      .ui.segment.attached
+        = render_partial 'seminar/registration'# :engine => 'haml'
 
   #side_column.column
-    .ui.segment
-      %ul
-        - @seminar.web_notices.each do |notice|
-          %li #{notice['title']} #{notice['value']}
+    %h3.ui.header.dividing.attached.top=I18n.t('seminars.further_infos')
+    .ui.segment.attached
+      - @seminar.web_notices.each do |notice|
+        %h3=notice['label']
+        !=notice['text']
     .ui.segment
       - @seminar.categories.each do |category|
-        %h4 Andere Seminare aus der Kategorie #{category.name}
-        %ul.ui.list
-          - category.seminars.each do |related_seminar|
-            %li= seminar_link(related_seminar)
+        - if !category.seminars.empty?
+          %h4 Andere Seminare aus der Kategorie #{category.name}
+          %ul.ui.list
+            - category.seminars.each do |related_seminar|
+              %li
+                -# How about partial, :object => 
+                =partial('seminar/seminar_link', :locals => {:seminar => related_seminar})
       
       - @seminar.referees.each do |referee|
-        %h4 Andere Seminare von #{referee.full_name}
-        %ul.ui.list
-          - (referee.seminars - [@seminar]).each do |seminar|
-            %li=seminar_link seminar
+        - if referee.seminars.size > 2
+          %h4 Andere Seminare von #{referee.full_name}
+          %ul.ui.list
+            - (referee.seminars - [@seminar]).each do |seminar|
+              %li=seminar_link seminar
