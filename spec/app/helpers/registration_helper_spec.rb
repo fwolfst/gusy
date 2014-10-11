@@ -23,6 +23,7 @@ RSpec.describe "Gusy::App::RegistrationHelper" do
   end
 
   describe "#couch_json_registration" do
+    pending "with couch" do
     it "should return expected json for registration" do
       json_hash = {
         #"g_timestamp" => 1406869941,
@@ -48,6 +49,7 @@ RSpec.describe "Gusy::App::RegistrationHelper" do
       }
 
       expect(subject.couch_json_registration(sample_registration)).to eql json_hash
+    end
     end
   end
 end

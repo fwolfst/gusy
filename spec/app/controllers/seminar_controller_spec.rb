@@ -40,6 +40,16 @@ RSpec.describe "SeminarController" do
   describe "/seminar/show/:id shows seminar details" do
     before do
       I18n.locale = :de
+      get "/seminar/show/4"
+    end
+    it 'should not display registration block for seminars in the past.' do
+      expect(last_response.body).to_not include("Anmeldung")
+    end
+  end
+
+  describe "/seminar/show/:id shows seminar details" do
+    before do
+      I18n.locale = :de
       get "/seminar/show/1"
     end
 
@@ -146,6 +156,12 @@ RSpec.describe "SeminarController" do
     before { get '/seminar/search?search_term=%22oooooooul%22' }
     it 'shows no hits' do
       expect(last_response.body).to include('Sorry, no')
+    end
+  end
+
+  pending do
+    describe 'shows a context sensitive menu' do
+      fail
     end
   end
 
