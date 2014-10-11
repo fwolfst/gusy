@@ -1,6 +1,6 @@
 # Gusy
 
-A padrino gem, showing seminars for the ecovillage Sieben Linden homepage.
+A padrino gem, eventually showing seminars for the ecovillage Sieben Linden homepage.
 
 ## Usage
 
