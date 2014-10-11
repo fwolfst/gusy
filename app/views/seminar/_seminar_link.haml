@@ -1,0 +1,5 @@
+.ui.label.horizontal
+  =I18n.l(locals[:seminar].date_from, :format => :daymonth)
+  =I18n.t('to')
+  =I18n.l(locals[:seminar].date_to, :format => :short)
+=seminar_link locals[:seminar]
