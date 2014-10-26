@@ -82,6 +82,10 @@ module Gusy
       end
     end
 
+    get '/impressum' do
+      render 'impressum'
+    end
+
     get '/' do
       redirect url('seminar')
     end
