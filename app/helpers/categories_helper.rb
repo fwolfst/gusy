@@ -12,6 +12,10 @@ module Gusy
         Category.find(:id => id_or_shorturl) || Category.find(:shorturl => id_or_shorturl)
       end
 
+      def category_url category
+        url(:categories, :show, :category => category.id)
+      end
+
       # HTML link to category (displays name)
       def category_link category
         if category.shorturl
