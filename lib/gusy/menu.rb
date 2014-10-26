@@ -50,7 +50,7 @@ module Gusy
     def class_referees
       ACTIVE_CLASS if referees
     end
-    def class_category
+    def class_categories
       ACTIVE_CLASS if categories
     end
   end
