@@ -1,13 +1,18 @@
 require 'spec_helper'
 
 RSpec.describe "Gusy::App::CategoriesHelper" do
-  pending "add some examples to (or delete) #{__FILE__}" do
-    let(:helpers){ Class.new }
-    before { helpers.extend Gusy::App::CategoriesHelper }
-    subject { helpers }
+  let(:helpers){ Class.new }
+  before { helpers.extend Gusy::App::CategoriesHelper }
+  subject { helpers }
 
-    it "should return nil" do
-      expect(subject.foo).to be_nil
+  pending "make url (from router) available in helper" do
+    describe "#seminar_url" do
+      it 'preferes to link to shorturl' do
+        expect(subject.seminar_url(seminar)).to eq ""
+      end
+      it 'falls back to id' do
+        expect(subject.seminar_url(seminar)).to eq ""
+      end
     end
   end
 end

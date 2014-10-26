@@ -1,8 +1,19 @@
 require 'spec_helper'
+
 RSpec.describe "SeminarController" do
-  describe "shows basic seminar list (with seminar) as index" do
+  describe "shows basic entry points (with seminar) as index" do
     before do
-      get "/seminar/"
+      get "/"
+    end
+    pending "describe index" do
+      describe "" do
+      end
+    end
+  end
+
+  describe "shows basic seminar list (with seminar) in seminar list" do
+    before do
+      get "/seminar/all"
     end
 
     it "contains the test seminar" do
@@ -43,7 +54,8 @@ RSpec.describe "SeminarController" do
       get "/seminar/show/4"
     end
     it 'should not display registration block for seminars in the past.' do
-      expect(last_response.body).to_not include("Anmeldung")
+      #expect(last_response.body).to_not include("Anmeldung")
+      expect(last_response.body).to include("liegt in der Vergang")
     end
   end
 
@@ -53,6 +65,9 @@ RSpec.describe "SeminarController" do
       get "/seminar/show/1"
     end
 
+    it 'with urgent notice' do
+        expect(last_response.body).to include('weak participants')
+    end
     it "containing the seminar name" do
       expect(last_response.body).to include("Testing Seminar")
     end
@@ -60,7 +75,7 @@ RSpec.describe "SeminarController" do
       expect(last_response.body).to include("Soulcleaning")
     end
     it "containing the seminar date (german format)" do
-      expect(last_response.body).to include("31.12. 2014")
+      expect(last_response.body).to include("31.12.2014")
     end
     it "containing the seminar description" do
       expect(last_response.body).to include("everything you")
@@ -140,6 +155,7 @@ RSpec.describe "SeminarController" do
     end
   end
 
+
   pending do
     describe 'searches in categories, referees, qualifications, seminar names' do
       fail
@@ -155,7 +171,7 @@ RSpec.describe "SeminarController" do
   describe 'successless search' do
     before { get '/seminar/search?search_term=%22oooooooul%22' }
     it 'shows no hits' do
-      expect(last_response.body).to include('Sorry, no')
+      expect(last_response.body).to include('Sorry nichts')
     end
   end
 
