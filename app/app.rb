@@ -69,7 +69,11 @@ module Gusy
     #   error 500 do
     #     render 'errors/500'
     #   end
-    #
+
+    error 404 do
+      render 'errors/404'
+    end
+
     before do
       if request.path_info =~ /^\/(#{I18n.available_locales.join('|')})(.*)/
           I18n.locale = $1.to_sym
