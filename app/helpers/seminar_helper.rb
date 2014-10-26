@@ -30,6 +30,32 @@ module Gusy
       def referee_link referee
         link_to referee.full_name, url(:seminar, :referee, referee.id)
       end
+
+      def from_to_format seminar
+        def same_day? from,to
+        end
+        def same_year? from, to
+          from.year == to.year
+        end
+        def same_month? from, to
+          from.month == to.month && same_year?(from, to)
+        end
+        if same_month? seminar.date_from, seminar.date_to
+          "#{seminar.date_from.day}. - #{I18n.l(seminar.date_to, :format => :short)}"
+        elsif !same_year? seminar.date_from, seminar.date_to
+          "#{I18n.l(seminar.date_from, :format => :short)} - #{I18n.l(seminar.date_to, :format => :short)}"
+        else
+          "#{I18n.l(seminar.date_from, :format => :daymonth)} - #{I18n.l(seminar.date_to, :format => :short)}"
+        end
+      end
+
+      def seminar_url seminar
+        if seminar.shorturl
+          url(:seminar, :show, seminar.shorturl)
+        else
+          url(:seminar, :show, seminar.id)
+        end
+      end
     end
 
     helpers SeminarHelper
