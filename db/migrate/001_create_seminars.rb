@@ -9,7 +9,9 @@ Sequel.migration do
       DateTime :date_to
       Text :cancellation_conditions
       Text :description
+      Text :description_short
       Text :web_notice
+      Text :web_notices
     end
 
     create_table :seminars_categories do
