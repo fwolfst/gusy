@@ -2,7 +2,7 @@ en:
   time:
     formats:
       short: "%y/%m/%d"
-      daymonth: "%m.%d."
+      daymonth: "%m/%d"
       monthday: "%d"
   date:
     formats:
@@ -21,7 +21,8 @@ en:
   seminars:
     all: All Seminars
     archive: Archive
-    categories: Categories
+    calendar: Seminar Calendar
+    categories: Topics
     description: Beschreibung
     referees: Referees
     registration: Registration
@@ -29,3 +30,6 @@ en:
     seminars_of_category: Seminars of category
   referee:
     for_following_seminars: Referee for following seminars
+  search:
+    no_hits: Sorry nichts gefunden
+

@@ -1,31 +1,34 @@
 de:
   time:
     formats:
-      short: "%d.%m. %Y"
-      daymonth: "%d.%m."
+      short: "%d.%m.%Y"
+      daymonth: "%d.%M."
       monthday: "%d"
   date:
     formats:
-      short: "%d.%m. %Y"
+      short: "%d.%M.%Y"
   datetime:
     formats:
-      short: "%d.%m. %Y"
+      short: "%d.%M.%Y"
   to: bis
   dates: Datum
   more: mehr
-  category: Kategorie
+  category: Thema
   with: mit
   and: und
-  search: Suche
   language: Sprache
   seminars:
     all: Alle Seminare
+    calendar: Seminarkalender
     archive: Archiv
-    categories: Kategorien
+    categories: Themen
     description: Beschreibung
     referees: Referenten/Innen
-    seminars_of_category: Seminare der Kategorie
+    seminars_of_category: Seminare zum Thema
     registration: Anmeldung
     further_infos: Weitere Informationen
   referee:
     for_following_seminars: Referent für folgende Seminare
+  search:
+    search: Suche
+    no_hits: Sorry nichts gefunden
