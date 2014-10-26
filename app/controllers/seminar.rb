@@ -23,7 +23,13 @@ Gusy::App.controllers :seminar do
   end
 
   get :index do
-    @seminars = Seminar.all
+    @categories = Category.all
+    render 'index'
+  end
+
+  get :current do
+    @menu = Gusy::GusyMenu.current_calendar
+    @seminars = Seminar.three_month.all
     render 'list'
   end
 
