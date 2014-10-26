@@ -17,7 +17,11 @@ Gusy::App.controllers :seminar do
   # get '/example' do
   #   'Hello world!'
   # end
-  
+
+  before do
+    @menu = Gusy::GusyMenu.new
+  end
+
   get :index do
     @seminars = Seminar.all
     render 'list'
