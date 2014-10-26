@@ -1,0 +1,59 @@
+#entry.ui.one.column.page.grid(style="position:50%")
+  .column
+    .ui.items
+      .item
+        .content.align-center
+          .name
+            Seminar Kalender
+          .description
+            %a.blank(href="")
+              %i.ui.calendar.icon.massive.center.aligned(style='width:100%;')
+            %br
+            Look at our schedule...
+            %br
+            %br
+            =link_to "Aktueller Kalender", url(:seminar, :current)
+            %br
+            =link_to "2014", url(:seminar, :archive, :year => '2014', :month => '1')
+            %br
+            =link_to "2015", url(:seminar, :archive, :year => '2015', :month => '1')
+            %br
+            =link_to "Archiv", url(:seminar, :all)
+
+      .item
+        .content.align-center
+          .name
+            Nach Themen
+          .description
+            %a.blank(href="")
+              %i.ui.center.aligned.browser.icon.massive(style='width:100%;')
+            %br
+            zum Beispiel ...
+            %br
+            %br
+            - @categories.sample(3).each do |category|
+              .ui.label=category_link(category)
+              %br
+            %br
+            =link_to "alle Themen", url(:categories, :list)
+      .item
+        .content
+          .name.align-center
+            Suche
+          .description
+            %i.ui.center.aligned.search.icon.massive
+            -#(style='width:100%;')
+            %br
+            %br
+            Seminar-Beschreibungen durchsuchen
+            %br
+            %br
+            %form.align-center(action="/seminar/search" method="GET")
+              .ui.icon.input.item
+                %input{:placeholder => I18n.t('search'), :name =>"search_term"}
+                  %i.search.link.icon
+              %br
+              %br
+              .ui.blue.submit.button
+                =I18n.t('search.search')
+    
