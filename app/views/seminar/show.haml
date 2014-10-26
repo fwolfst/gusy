@@ -2,6 +2,8 @@
   .column
     %h2.ui.header="Seminar: #{@seminar.name}"
 
+%input(type="hidden" name="seminar-uuid" value="#{@seminar.uuid}")
+%input(type="hidden" name="seminar-shorturl" value="#{@seminar.shorturl}")
 
 .ui.two.column.page.grid
   .column
@@ -26,18 +28,48 @@
           %li=referee_link referee
           =Qualification.find(:referee => referee, :seminar => @seminar).qualification_text
 
-    - if @seminar.date_from >= Date.today
-      %h3.blue.ui.header.attached.inverted.top=I18n.t('seminars.registration')
-      .ui.segment.attached
+    %h3.blue.ui.header.attached.inverted.top=I18n.t('seminars.registration')
+    .ui.segment.attached
+      - if @seminar.date_from >= Date.today
         = render_partial 'seminar/registration'# :engine => 'haml'
+      - else
+        Dieses Seminar liegt in der Vergangenheit
 
   #side_column.column
-    %h3.ui.header.dividing.attached.top=I18n.t('seminars.further_infos')
+    %h4.ui.header.dividing.attached.top=I18n.t('seminars.further_infos')
     .ui.segment.attached
-      - @seminar.web_notices.each do |notice|
+      - if !strip_tags(@seminar.web_notice).strip.gsub("\"",'').empty?
+        != @seminar.web_notice
+      - @seminar.get_web_notices.each do |notice|
         %h3=notice['label']
         !=notice['text']
-    .ui.segment
+      %br
+      %h3 Weitere Informationen
+      %a(href="http://siebenlinden.de/index.php?id=110")
+        Gästebetrieb
+      %br
+      %a(href="http://siebenlinden.de/index.php?id=62")
+        Bildung für Nachhaltigkeit
+      %br
+      %a(href="http://siebenlinden.de/index.php?id=88")
+        Wissenswertes zur Anmeldung
+      %br
+      %a(href="http://siebenlinden.de/index.php?id=85")
+        Übernachten
+      %br
+      %a(href="http://siebenlinden.de/index.php?id=22")
+        Anreise
+      %br
+      %a(href="http://siebenlinden.de/index.php?id=142")
+        Barrierefreiheit
+      %br
+      %a(href="http://siebenlinden.de/index.php?id=87")
+        Bildungsprämie
+
+    %h4.ui.header.dividing.attached.top
+      -#=I18n.t('seminars.further_infos')
+      Related Seminars
+    .ui.segment.attached
       - @seminar.categories.each do |category|
         - if !category.seminars.empty?
           %h4 Andere Seminare aus der Kategorie #{category.name}
