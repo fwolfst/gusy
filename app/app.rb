@@ -75,6 +75,7 @@ module Gusy
     end
 
     before do
+      @menu = Gusy::GusyMenu.new
       if request.path_info =~ /^\/(#{I18n.available_locales.join('|')})(.*)/
           I18n.locale = $1.to_sym
           logger.info ("set locale #{I18n.locale}")
