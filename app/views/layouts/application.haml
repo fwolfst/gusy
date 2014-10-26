@@ -7,51 +7,26 @@
     %script(src="/javascripts/jquery-2.1.1.min.js")
     %script(src="/javascripts/semantic.min.js")
   %body.ui
-    #topheader
-      -#.ui.dropdown
-      -#  men
-      -#  %i.icon.mail
-      -#  #sm.ui.menu
-      -#    .item
-      -#      blo
-      -#    %a.item(href="") bla
-      -#    %a.item(href="url") bla
-      -#    %a.item bla
-      -#-#:javascript
-      -#-#  $('.ui.dropdown')
-      -#-#    .dropdown()
-      -#-#    ;
-
-      #menu.ui.menu.tiered
-        =link_to I18n.t('seminars.all'), url(:seminar, :index), :class=>"item"
-        =link_to I18n.t('seminars.categories'), url(:categories, :index), :class=>"item"
-        =link_to I18n.t('seminars.referees'), url(:seminar, :referees), :class=>"item"
-        =link_to I18n.t('seminars.archive'), url(:seminar, :archive, :year => 2014, :month => 12), :class=>"item"
-        .right.menu
-          = I18n.t('language')
-          - I18n.available_locales.each do |locale|
-            %a.item(href="/#{locale}/#{request.path_info}")=locale
-          .item
-            %form.item(action="/seminar/search" method="GET" class="" style="padding:0px;margin:0px")
-              .ui.icon.input.item
-                %input{:placeholder => I18n.t('search'), :name =>"search_term"}
-                  %i.search.link.icon
-        -#.ui.sub.menu
-        -#  %a.item="a"
-        -#  %a.item="a"
-        -#  %a.item="a"
-    #messages
-      - if flash[:notice]
-        .ui.message
-          .header=flash[:notice]
-      - if flash[:success]
-        .ui.success.message
-          .header=flash[:success]
-      - if flash[:failure]
-        .ui.error.message
-          .header=flash[:failure]
-    #content
-      = yield
-    #sidebar
-    #footer
-      Sieben Linden Gusy
+    #no-foot
+      #topheader
+        = partial('menu', :object => @menu)
+      #messages
+        - if flash[:notice]
+          .ui.message
+            .header=flash[:notice]
+        - if flash[:success]
+          .ui.success.message
+            .header=flash[:success]
+        - if flash[:failure]
+          .ui.error.message
+            .header=flash[:failure]
+      #content(style="height:100%;")
+        = yield
+      #sidebar
+    #footer.ui.segment
+      .ui.column
+        .one.column.align-center
+          Sieben Linden Guest System
+          | Copyright 2014 Freundeskreis Ökodorf e.V.
+          |
+          %a(href="/impressum") Impressum
