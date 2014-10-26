@@ -1,6 +1,13 @@
+html {
+  height: 100%;
+}
 body {
   font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
-  background-color: lightgrey;
+  background-image:url('/images/heart.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
 }
 
 h2.calendar {
@@ -15,4 +22,36 @@ ul.calendar li {
 ul.calendar li a {
   color: #f60;
 }
-
+a {
+  color: #010;
+}
+i:hover {
+  color: #009FDA;
+}
+i.plop:hover {
+  color: #009FDA;
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+}
+.align-center {
+  text-align: center;
+}
+.blank {
+  text-decoration: none;
+}
+#no-foot {
+  min-height: 100%;
+}
+#content {
+  overflow: auto;
+  padding-bottom: 4em;
+}
+#footer {
+  height: 4em;
+  position:relative;
+  margin-top: -4em;
+  clear:both;
+}
