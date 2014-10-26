@@ -1,39 +1,9 @@
-#seminars(style="margin:1em;")
-  - @seminars.group_by {|seminar| seminar_year_month(seminar)}. each do |time, seminars|
+#seminar_list(style="margin:1em;")
+  - @seminars.group_by {|seminar| seminar_year_month(seminar)}.each do |time, seminars|
+    %a{:name => "#{time[1]}"}
     %h2.ui.dividing.header
       =I18n.t(:"date.month_names")[time[1]]
       =time[0]
     #seminar.ui.items
       - seminars.each do |seminar|
-        -#%a(href="")
-        .item
-          -#.ui.ribbon.label
-          -#  = I18n.l(seminar.date_from, :format => :monthday)
-          -#  #{"-"}
-          -#  = I18n.l(seminar.date_to, :format => :monthday)
-            -# Include month if its next month
-          .content
-            -#.meta
-            -#  Meta
-            .ui.ribbon.label.green
-              = I18n.l(seminar.date_from, :format => :monthday)
-              #{"-"}
-              = I18n.l(seminar.date_to, :format => :monthday)
-              - if seminar.date_from.day > seminar.date_to.day
-                =I18n.t(:"date.month_names")[(time[1]-1)%12 + 1][0..2]
-            -#  Middle Top ribbon
-            .name
-              = seminar.name
-            %br
-            - seminar.categories.each do |category|
-              .ui.label
-                = category_link category
-            %p.description
-              %br
-              - trunc_desc = truncate(strip_tags(seminar.description), :length => 230)
-              = trunc_desc
-          -#.ui.ribbon.label
-          -#  Bottom ribbon
-          .extra
-            %a(href="/seminar/show/#{seminar.id}")
-              mehr ...
+        = partial('seminar/item', :locals => {:seminar => seminar, :time => time})
