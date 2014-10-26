@@ -15,7 +15,7 @@
       - if seminar.date_from.day > seminar.date_to.day
         =I18n.t(:"date.month_names")[(time[1]-1)%12 + 1][0..2]
     -#  Middle Top ribbon
-    .name
+    %a.name.blank(href="#{seminar_url seminar}")
       = seminar.name
     %br
     - seminar.categories.each do |category|
@@ -23,10 +23,16 @@
         = category_link category
     %p.description
       %br
-      - trunc_desc = truncate(strip_tags(seminar.description), :length => 230)
-      = trunc_desc
+      %a.blank(href="#{seminar_url seminar}")
+        - trunc_desc = truncate(strip_tags(seminar.description_short), :length => 230)
+        -# trunc_desc = truncate(seminar.description, :length => 530)
+        = trunc_desc
+      %br
+      %br
+      %a(href="#{seminar_url(seminar)}")
+        mehr ...
   -#.ui.ribbon.label
   -#  Bottom ribbon
-  .extra
-    %a(href="/seminar/show/#{seminar.id}")
-      mehr ...
+  -#.extra
+  -#  %a(href="#{seminar_url(seminar)}")
+  -#    mehr ...
