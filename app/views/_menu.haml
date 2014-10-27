@@ -3,7 +3,6 @@
     =link_to I18n.t('seminars.calendar'), url(:seminar, :index), :class=>"item #{@menu.class_calendar}"
     =link_to I18n.t('seminars.categories'), url(:categories, :index), :class=>"item #{@menu.class_categories}"
     =link_to I18n.t('seminars.referees'), url(:seminar, :referees), :class=>"item #{@menu.class_referees}"
-    =link_to I18n.t('seminars.archive'), url(:seminar, :archive, :year => 2014, :month => 12), :class=>"item"
     .right.menu
       %b
         %a.item(href="http://siebenlinden.de/")

@@ -88,11 +88,6 @@ Gusy::App.controllers :seminar do
     render 'list'
   end
 
-  get :archive, :with => :year, :with => :month do
-    @seminars = Seminar.all
-    render 'archive'
-  end
-
   get :referee, :with => :id do
     @menu = Gusy::GusyMenu.referee
     @referee = Referee[params[:id]] || halt(404, "Referee not found")
