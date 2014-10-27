@@ -38,6 +38,28 @@ Gusy::App.controllers :seminar do
     render 'calendar', :layout => 'iframeable'
   end
 
+  get :all do
+    @menu = Gusy::GusyMenu.new
+    @menu.all = true
+    @seminars = Seminar.all
+    render 'list'
+  end
+
+  get :list, :with => [:year] do
+    @menu = Gusy::GusyMenu.calendar_year(params[:year].to_i)
+    @seminars = Seminar.of_year(params[:year].to_i).all
+    render 'list'
+  end
+
+  get :list, :with => [:year, :month] do
+    @menu = Gusy::GusyMenu.calendar_month(params[:year].to_i,
+                                          params[:month].to_i)
+    from = DateTime.new(params[:year].to_i, params[:month].to_i, 01)
+    to = DateTime.new(params[:year].to_i + 1, params[:month].to_i, 01)
+    @seminars = Seminar.of_month(params[:year].to_i, params[:month].to_i).all
+    render 'list'
+  end
+
   get :next_3 do
     @seminars = Seminar.where{date_from > Date.today}.limit(3)
     render 'next_3', :layout => 'iframeable'
