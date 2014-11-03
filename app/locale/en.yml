@@ -26,6 +26,7 @@ en:
     description: Beschreibung
     referees: Referees
     registration: Registration
+    need_accept: You have to accept the cancellation terms.
     further_infos: Weitere Informationen
     seminars_of_category: Seminars of category
   referee:
