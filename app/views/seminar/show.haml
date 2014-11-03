@@ -36,9 +36,10 @@
         Dieses Seminar liegt in der Vergangenheit
 
   #side_column.column
-    %h4.ui.header.dividing.attached.top=I18n.t('seminars.further_infos')
+    %h4.ui.header.dividing.attached.top.inverted.purple=I18n.t('seminars.further_infos')
     .ui.segment.attached
-      - if !strip_tags(@seminar.web_notice).strip.gsub("\"",'').empty?
+      - web_notice_text = strip_tags(@seminar.web_notice)
+      - if web_notice_text && !web_notice_text.strip.gsub("\"",'').empty?
         != @seminar.web_notice
       - @seminar.get_web_notices.each do |notice|
         %h3=notice['label']
