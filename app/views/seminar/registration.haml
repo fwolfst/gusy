@@ -22,9 +22,10 @@
     = f.text_field_block :phone,   :caption => 'Telefon'
     = f.text_field_block :mobile,  :caption => 'Handy'
     = f.text_field_block :comment, :caption => 'Bemerkungen'
+    %h7 Rücktrittsbedingungen
     = @seminar.cancellation_conditions
     = f.check_box_block :accept_terms, :caption => 'AGB'
     = f.check_box_block :accept_ride_sharing, :caption => 'Mitfahrbörse'
     = f.check_box_block :accept_future_notice, :caption => 'Zukünftiges'
-    = f.check_box_block :accept_adress_sharing, :caption => 'Andere Teilnehmer dürfen meine Daten sehen'
+    = f.check_box_block :accept_adress_sharing, :caption => 'Andere Teilnehmer dürfen Meine Daten sehen'
     = f.submit_block "Anmelden"
