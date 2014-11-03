@@ -19,7 +19,8 @@
             .header=flash[:success]
         - if flash[:failure]
           .ui.error.message
-            .header=flash[:failure]
+            %center
+              .header=flash[:failure]
       #content(style="height:100%;")
         = yield
       #sidebar
