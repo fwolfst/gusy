@@ -13,7 +13,7 @@
       #{"-"}
       = I18n.l(seminar.date_to, :format => :monthday)
       - if seminar.date_from.day > seminar.date_to.day
-        =I18n.t(:"date.month_names")[(time[1]-1)%12 + 1][0..2]
+        =I18n.t(:"date.month_names")[(time[1]-1)%12 + 2][0..2]
     -#  Middle Top ribbon
     %a.name.blank(href="#{seminar_url seminar}")
       = seminar.name
