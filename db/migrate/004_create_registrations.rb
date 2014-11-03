@@ -14,10 +14,12 @@ Sequel.migration do
       String :participants_json
       String :accomodation_json
       String :comment
-      String :saraswati_seminar_uuid
-      Boolean :accept_adress_sharing
+      String :seminar_uuid
+      String :saraswati_booking_request_uuid
+      #Boolean :accept_adress_sharing
       Boolean :accept_future_notice
-      Boolean :accept_ride_sharing
+      #Boolean :accept_ride_sharing
+      DateTime :timestamp
     end
   end
 
