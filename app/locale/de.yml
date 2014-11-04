@@ -20,6 +20,7 @@ de:
   seminars:
     all: Alle Seminare
     calendar: Seminarkalender
+    calendar2: Seminar Kalender
     archive: Archiv
     categories: Themen
     description: Beschreibung
@@ -28,8 +29,14 @@ de:
     registration: Anmeldung
     need_accept: Die Rücktrittsbedingungen müssen akzeptiert werden.
     further_infos: Weitere Informationen
+    related: Ähnliche Seminare
   referee:
     for_following_seminars: Referent für folgende Seminare
   search:
     search: Suche
     no_hits: Sorry nichts gefunden
+  calendar:
+    look: Schau dir unser Angebot an
+    current: Aktueller Kalendar
+  for_example: Zum Beispiel ...
+

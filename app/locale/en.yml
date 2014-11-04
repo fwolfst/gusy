@@ -22,15 +22,20 @@ en:
     all: All Seminars
     archive: Archive
     calendar: Seminar Calendar
+    calendar2: Seminar Calender
     categories: Topics
     description: Beschreibung
     referees: Referees
     registration: Registration
     need_accept: You have to accept the cancellation terms.
     further_infos: Weitere Informationen
+    related: Related Seminars
     seminars_of_category: Seminars of category
   referee:
     for_following_seminars: Referee for following seminars
   search:
     no_hits: Sorry nichts gefunden
-
+  calendar:
+    current: Current Calendar
+    look: Look at our schedule
+  for_example: for Example ...
