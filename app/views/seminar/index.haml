@@ -4,15 +4,15 @@
       .item
         .content.align-center
           .name
-            Seminar Kalender
+            =I18n.t('seminars.calendar2')
           .description
             %a.blank(href="#{url :seminar, :current}")
               %i.ui.calendar.icon.massive.center.aligned(style='width:100%;')
             %br
-            Schau dir unseren Kalendar an
+            =I18n.t('calendar.look')
             %br
             %br
-            =link_to "Aktueller Kalender", url(:seminar, :current)
+            =link_to I18n.t('calendar.current'), url(:seminar, :current)
             %br
             =link_to "2014", url(:seminar, :list, :year => '2014')
             %br
@@ -23,12 +23,12 @@
       .item
         .content.align-center
           .name
-            Nach Themen
+            =I18n.t('seminars.categories')
           .description
             %a.blank(href="#{url :categories, :list}")
               %i.ui.center.aligned.browser.icon.massive(style='width:100%;')
             %br
-            zum Beispiel ...
+            =I18n.t('for_example')
             %br
             %br
             - @categories.sample(3).each do |category|
