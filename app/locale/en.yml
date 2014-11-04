@@ -1,7 +1,7 @@
 en:
   time:
     formats:
-      short: "%y/%m/%d"
+      short: "%Y/%m/%d"
       daymonth: "%m/%d"
       monthday: "%d"
   date:

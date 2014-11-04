@@ -56,6 +56,15 @@ module Gusy
           url(:seminar, :show, seminar.id)
         end
       end
+
+      def i18n_short_to seminar
+        I18n.l(seminar.date_to, :format => :short)
+      end
+
+      def i18n_short_from seminar
+        I18n.l(seminar.date_from, :format => :short)
+      end
+
     end
 
     helpers SeminarHelper

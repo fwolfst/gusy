@@ -2,14 +2,14 @@ de:
   time:
     formats:
       short: "%d.%m.%Y"
-      daymonth: "%d.%M."
+      daymonth: "%d.%m."
       monthday: "%d"
   date:
     formats:
-      short: "%d.%M.%Y"
+      short: "%d.%m.%Y"
   datetime:
     formats:
-      short: "%d.%M.%Y"
+      short: "%d.%m.%Y"
   to: bis
   dates: Datum
   more: mehr
