@@ -16,7 +16,7 @@
           .ui.icon.input.item
             %input{:placeholder => I18n.t('search'), :name =>"search_term"}
               %i.search.link.icon
-  -if @menu
+  -if @menu && @menu.has_submenu?
     .ui.sub.menu.tiered
       -#.right.menu
       -#  %a.item(href="")

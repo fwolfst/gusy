@@ -44,8 +44,11 @@ module Gusy
     def class_year year
       ACTIVE_CLASS if seminar_calendar.year == year
     end
+    def has_submenu?
+      seminar_calendar
+    end
     def class_has_submenu
-      "tiered" if seminar_calendar
+      "tiered" if has_submenu?
     end
     def class_referees
       ACTIVE_CLASS if referees
