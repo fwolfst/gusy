@@ -21,12 +21,13 @@
     %h4.ui.header.attached.top=I18n.t('seminars.description')
     .ui.segment.attached
       != @seminar.description
-      
-      %h4.ui.header Referenten/Innen
-      %ul.ui.list
-        - @seminar.referees.each do |referee|
-          %li=referee_link referee
-          =Qualification.find(:referee => referee, :seminar => @seminar).qualification_text
+
+      -if @seminar.referees && !@seminar.referees.empty?
+        %h4.ui.header Referenten/Innen
+        %ul.ui.list
+          - @seminar.referees.each do |referee|
+            %li=referee_link referee
+            =Qualification.find(:referee => referee, :seminar => @seminar).qualification_text
 
     %h3.blue.ui.header.attached.inverted.top.inverted.purple=I18n.t('seminars.registration')
     .ui.segment.attached
