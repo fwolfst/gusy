@@ -12,6 +12,7 @@ Sequel.migration do
       Text :description_short
       Text :web_notice
       Text :web_notices
+      Boolean :registration_needed
     end
 
     create_table :seminars_categories do

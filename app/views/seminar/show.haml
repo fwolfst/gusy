@@ -28,12 +28,15 @@
           %li=referee_link referee
           =Qualification.find(:referee => referee, :seminar => @seminar).qualification_text
 
-    %h3.blue.ui.header.attached.inverted.top=I18n.t('seminars.registration')
+    %h3.blue.ui.header.attached.inverted.top.inverted.purple=I18n.t('seminars.registration')
     .ui.segment.attached
-      - if @seminar.date_from >= Date.today
-        = render_partial 'seminar/registration'# :engine => 'haml'
+      - if @seminar.registration_needed
+        - if @seminar.date_from >= Date.today
+          = render_partial 'seminar/registration'# :engine => 'haml'
+        - else
+          Dieses Seminar liegt in der Vergangenheit
       - else
-        Dieses Seminar liegt in der Vergangenheit
+        Diese Veranstaltung ist ein offenes Angebot. Eine Anmeldung ist nicht erforderlich.
 
   #side_column.column
     %h4.ui.header.dividing.attached.top.inverted.purple=I18n.t('seminars.further_infos')
