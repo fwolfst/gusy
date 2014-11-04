@@ -6,7 +6,7 @@
           .name
             Seminar Kalender
           .description
-            %a.blank(href="")
+            %a.blank(href="#{url :seminar, :current}")
               %i.ui.calendar.icon.massive.center.aligned(style='width:100%;')
             %br
             Schau dir unseren Kalendar an
@@ -25,7 +25,7 @@
           .name
             Nach Themen
           .description
-            %a.blank(href="")
+            %a.blank(href="#{url :categories, :list}")
               %i.ui.center.aligned.browser.icon.massive(style='width:100%;')
             %br
             zum Beispiel ...
@@ -56,4 +56,13 @@
               %br
               .ui.blue.submit.button
                 =I18n.t('search.search')
+  .column.fourteen.column.wide(style="margin-top:-32px;")
+    .ui.segment
+      %h4.ui.header.dividing
+        Liebe/r Besucher/In,
+      %p
+        Willkommen auf unserer neuen Seminar-Info-Homepage.
+        Sie ist noch im Wandel und vielleicht hier und da noch nicht so rund geschliffen wie die schönen Kiesel, die du am Strand sammelst.
+      %p
+        Bitte zögere nicht, uns im Zweifelsfall zu kontaktieren oder uns Feedback zu geben.  Wir haben noch viele Ideen, was wir umsetzen könnten und hoffen für den Ausbau noch entsprechende Mittel aquirieren zu können.  Die Seite wurde ausschließlich mit Freier Software erstellt.
     
