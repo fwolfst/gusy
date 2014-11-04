@@ -88,4 +88,5 @@
           %h4 Andere Seminare von #{referee.full_name}
           %ul.ui.list
             - (referee.seminars - [@seminar]).each do |seminar|
-              %li=seminar_link seminar
+              %li
+                =partial('seminar/seminar_link', :locals => {:seminar => seminar})
