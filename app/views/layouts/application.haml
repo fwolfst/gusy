@@ -16,11 +16,18 @@
             .header=flash[:notice]
         - if flash[:success]
           .ui.success.message
-            .header=flash[:success]
+            %center
+              .header
+                %i.icon.ok.sign
+                =flash[:success]
+                %i.icon.smile.large
         - if flash[:failure]
           .ui.error.message
             %center
-              .header=flash[:failure]
+              .header
+                %i.icon.warning
+                =flash[:failure]
+                %i.icon.frown.large
       #content(style="height:100%;")
         = yield
       #sidebar
