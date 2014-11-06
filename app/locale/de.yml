@@ -31,6 +31,10 @@ de:
     need_accept: Die Rücktrittsbedingungen müssen akzeptiert werden.
     further_infos: Weitere Informationen
     related: Ähnliche Seminare
+    is_in_past: Dieses Seminar liegt in der Vergangenheit.
+    open: Diese Veranstaltung ist ein offenes Angebot. Eine Anmeldung ist nicht erfolderlich.
+    other_from_category: Andere Veranstaltungen zum Thema
+    other_from_referee: Andere Veranstaltungen mit
   referee:
     for_following_seminars: Referent für folgende Seminare
   search:

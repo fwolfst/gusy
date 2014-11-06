@@ -32,6 +32,10 @@ en:
     further_infos: Weitere Informationen
     related: Related Seminars
     seminars_of_category: Seminars of category
+    is_in_past: This seminar lies in the past.
+    open: This seminar does not require a registration.
+    other_from_category: Other seminars to the topic
+    other_from_referee: Other seminars from
   referee:
     for_following_seminars: Referee for following seminars
   search:
