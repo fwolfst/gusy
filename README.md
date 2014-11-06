@@ -1,6 +1,7 @@
 # Gusy
 
 A padrino gem, showing seminars for the ecovillage Sieben Linden homepage.
+On the way to a real "GUestSYstem".
 Except for a twist in registration creation (where data also is pushed to a CouchDB) the gusy solution should be rather general.
 
 ## Usage
@@ -43,3 +44,20 @@ You can also use that seed data during development, with
   padrino rake -e development db:seed
 ```
 
+## Deployment
+
+Like any other standard sinatra/padrino/rack app.
+
+Here I will sketch an involved example for a debian system with apache and phusion passenger and a user with restricted rights (say, 'gusy').
+
+ * Install `rvm`.
+ * Configure passenger.conf to point to the rvm ruby, like
+    PassengerDefaultRuby /home/gusy/.rvm/gems/ruby-2.0.0-p481/wrappers/ruby
+ * Checkout gusy (the much cleaner gem install path is not yet walked upon), e.g. to /home/gusy/production)
+ * Create a VirtualHost in apache config files, point
+    DocumentRoot /home/gusy/production
+    ErrorLog /var/log/apache2/gusy.production.error.log
+ * Also specify the (/public) directory and
+    Allow from all
+    Options -MultiViews
+ * Ensure that the database is populated.
