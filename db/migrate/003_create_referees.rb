@@ -4,6 +4,8 @@ Sequel.migration do
       primary_key :id
       String :first_name
       String :last_name
+      Text :description
+      Text :comment
       String :homepage
     end
 

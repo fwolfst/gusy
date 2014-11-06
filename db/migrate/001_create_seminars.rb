@@ -5,6 +5,7 @@ Sequel.migration do
       String :name
       String :shorturl
       String :uuid
+      String :thumbnail_url
       DateTime :date_from
       DateTime :date_to
       Text :cancellation_conditions

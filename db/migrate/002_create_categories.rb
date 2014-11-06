@@ -5,6 +5,7 @@ Sequel.migration do
       String :name
       String :shorturl
       String :description
+      String :image_url
     end
   end
 

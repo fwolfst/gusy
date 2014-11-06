@@ -11,15 +11,15 @@ Sequel.migration do
       String :email
       String :phone
       String :mobile
-      String :participants_json
-      String :accomodation_json
+      Text :participants_json
+      Text :accomodation_json
       String :comment
-      String :seminar_uuid
-      String :saraswati_booking_request_uuid
-      #Boolean :accept_adress_sharing
       Boolean :accept_future_notice
-      #Boolean :accept_ride_sharing
       DateTime :timestamp
+      # Seminar and booking request uuid deal with
+      # Sieben Linden specific systems.
+      String :seminar_uuid
+      String :booking_request_uuid
     end
   end
 
