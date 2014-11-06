@@ -1,6 +1,9 @@
-zum Seminar
+=I18n.t('registration.for_seminar')
 %b=@seminar.name
-vom #{I18n.l(@seminar.date_from, :format => :short)} bis #{I18n.l(@seminar.date_to, :format => :short)}
+=I18n.t('from')
+=i18n_short_from @seminar
+=I18n.t('to')
+=i18n_short_to @seminar
 
 .ui.fluid.form.segment
   = form_for :registration, '/seminar/register', :id => 'register' do |f|

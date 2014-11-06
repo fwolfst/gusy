@@ -10,6 +10,7 @@ de:
   datetime:
     formats:
       short: "%d.%m.%Y"
+  from: vom
   to: bis
   dates: Datum
   more: mehr
@@ -39,4 +40,6 @@ de:
     look: Schau dir unser Angebot an
     current: Aktueller Kalendar
   for_example: Zum Beispiel ...
+  registration:
+    for_seminar: zum Seminar
 

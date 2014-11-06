@@ -10,6 +10,7 @@ en:
   datetime:
     formats:
       short: "%d/%m/%Y"
+  from: from
   to: to
   dates: Datum
   more: more
@@ -39,3 +40,6 @@ en:
     current: Current Calendar
     look: Look at our schedule
   for_example: for Example ...
+  registration:
+    for_seminar: for Seminar
+
