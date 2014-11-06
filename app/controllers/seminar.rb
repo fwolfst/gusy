@@ -1,20 +1,24 @@
+# encoding: UTF-8
 Gusy::App.controllers :seminar do
   before do
     @menu = Gusy::GusyMenu.new
   end
 
   get :index do
+    @title = "Sieben Linden Seminare: Übersicht"
     @categories = Category.all
     render 'index'
   end
 
   get :current do
+    @title = "Sieben Linden: Aktuelle Seminare"
     @menu = Gusy::GusyMenu.current_calendar
     @seminars = Seminar.three_month.all
     render 'list'
   end
 
   get :calendar do
+    @title = "Sieben Linden: Seminarkalendar"
     @seminars = Seminar.where{date_from > Date.today}.all
     render 'calendar', :layout => 'iframeable'
   end
@@ -27,6 +31,7 @@ Gusy::App.controllers :seminar do
   end
 
   get :list, :with => [:year] do
+    @title = "Sieben Linden: Seminare in #{params[:year]}"
     @menu = Gusy::GusyMenu.calendar_year(params[:year].to_i)
     @seminars = Seminar.of_year(params[:year].to_i).all
     render 'list'
@@ -48,6 +53,7 @@ Gusy::App.controllers :seminar do
 
   get :show, :with => :id do
     @seminar = seminar(params['id']) || halt(404, "Seminar not found")
+    @title = "Sieben Linden: Seminar #{@seminar.name}"
     render 'show'
   end
 
@@ -57,6 +63,7 @@ Gusy::App.controllers :seminar do
   end
 
   get :search do
+    @title = "Sieben Linden: Seminarsuche #{@seminar.name}"
     @seminars = Seminar.where(Sequel.ilike(:description, "%#{params[:search_term]}%")).all
     #Alternative:
     #@seminars = Seminar.grep(:description, "%#{params[:search_term]}%").all
