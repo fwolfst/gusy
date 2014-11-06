@@ -40,6 +40,19 @@ de:
     look: Schau dir unser Angebot an
     current: Aktueller Kalendar
   for_example: Zum Beispiel ...
+  models:
+    registration:
+      attributes:
+        firstname: Vorname
+        lastname: Nachname
+        street_and_no: Straße und Hausnummer
+        zip: PLZ
+        city: Ort
+        country: Land
+        email: e-Mail
+        phone: Telefonnummer
+        mobile: Handynummer
+        comment: Bemerkungen
   registration:
     for_seminar: zum Seminar
 

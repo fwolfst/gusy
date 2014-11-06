@@ -42,4 +42,17 @@ en:
   for_example: for Example ...
   registration:
     for_seminar: for Seminar
+  models:
+    registration:
+      attributes:
+        firstname: First Name
+        lastname: Last Name
+        street_and_no: Street and Nr.
+        zip: ZIP
+        city: City
+        country: Country
+        email: eMail
+        phone: Phone Number
+        mobile: Mobile Phone Number
+        comment: Comment
 
