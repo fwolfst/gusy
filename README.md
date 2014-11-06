@@ -1,6 +1,7 @@
 # Gusy
 
-A padrino gem, eventually showing seminars for the ecovillage Sieben Linden homepage.
+A padrino gem, showing seminars for the ecovillage Sieben Linden homepage.
+Except for a twist in registration creation (where data also is pushed to a CouchDB) the gusy solution should be rather general.
 
 ## Usage
 
