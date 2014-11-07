@@ -61,22 +61,17 @@
                   }
                 );
       .fields
-        %small
-          .ui.basic.accordion.field
-            .title
-              %i.icon.dropdown
-              Raumwunsch
-            .content.field{:class => (@room_wishes && !@room_wishes.empty?) ? "active" : ""}
-              .field
-                %small
-                  - settings.rooms.each do |room|
-                    .ui.checkbox
-                      %input{:id => param_string(room),
-                        :name => "room_wish[]",
-                        :type => 'checkbox',
-                        :value => room, :checked => (@room_wishes && @room_wishes.include?(room)) ? 'checked' : false}
-                      %label{:for => param_string(room)}
-                        =room
+        .fields.ui.basic
+          .field
+            .title=t('registration.room_wish')
+            - settings.rooms.each do |room|
+              .ui.checkbox
+                %input{:id => param_string(room),
+                  :name => "room_wish[]",
+                  :type => 'checkbox',
+                  :value => room, :checked => (@registration && @registration.accomodation_json.include?(room)) ? 'checked' : false}
+                %label{:for => param_string(room)}
+                  =room
 
       %h5.ui.header.red=t('registration.cancellation_conditions')
       %small
