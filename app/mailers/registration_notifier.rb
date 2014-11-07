@@ -41,16 +41,16 @@
 
 Gusy::App.mailer :registration_notifier do
 
-  email :confirm_registration do |host_adress, registration, seminar|
-    from host_adress
+  email :confirm_registration do |host_address, registration, seminar|
+    from host_address
     to   registration.email
     subject "#{I18n.t('registration.confirm_mail_subject')} #{seminar.name}"
     locals :registration => registration, :seminar => seminar
     render 'confirm_registration'
   end
 
-  email :notify_host do |host_adress, registration, seminar|
-    to   host_adress
+  email :notify_host do |host_address, registration, seminar|
+    to   host_address
     from registration.email
     subject "#{I18n.t('registration.host_mail_subject')} #{seminar.name} (#{seminar.date_from})"
     locals :registration => registration, :seminar => seminar
