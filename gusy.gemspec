@@ -14,6 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "gusy"
   gem.require_paths = ["lib", "app", "models"]
   gem.version       = Gusy::VERSION
+  gem.license       = ["GPL-3", "MIT"]
 
   gem.add_dependency "padrino-core"
 
