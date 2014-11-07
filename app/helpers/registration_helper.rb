@@ -36,6 +36,35 @@ module Gusy
       def new_participant_html
         other_participant_html ['', '', '']
       end
+
+      def terms_ack? params
+        param_terms_ack = params['registration'].delete 'accept_terms'
+        param_terms_ack && param_terms_ack == "on"
+      end
+
+      def registration_from_params params, seminar
+        Registration.strict_param_setting = false
+        registration = Registration.new params['registration']
+        registration.seminar_uuid = seminar.uuid
+        registration.accomodation_json = [*params['room_wish']].join(', ')
+        others = params['name'].zip(params['lastname'], params['age']) rescue []
+        registration.participants_json = others.to_json
+        registration
+      end
+
+      def register! registration, seminar
+        json = couch_json_registration registration
+        push_booking_request json.to_json
+        deliver(:registration_notifier,
+                :confirm_registration,
+                settings.config['notification_address'],
+                registration, seminar)
+        deliver(:registration_notifier,
+                :notify_host,
+                settings.config['notification_address'],
+                registration, seminar)
+      end
+
       def couch_json_registration registration
         if registration.participants_json
           participants = JSON.parse(registration.participants_json)
@@ -73,8 +102,16 @@ module Gusy
           },
           'g_meta' => { 'g_type' => 'slseminar_booking_request' }
         }
-        # RestClient.push config[saraswati_url]
+        #"g_timestamp": Time.now.to_i,
       end
+
+      def push_booking_request req_json
+        uuid = SecureRandom.uuid
+        doc_url = "#{settings.config['saraswati']['couch_url']}/#{uuid}"
+        response = RestClient.put(doc_url, req_json,
+                                  :content_type => 'application/json')
+      end
+
     end
 
     helpers RegistrationHelper
