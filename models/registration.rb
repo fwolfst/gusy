@@ -13,4 +13,8 @@ class Registration < Sequel::Model
   def full_name
     "#{firstname} #{lastname}"
   end
+
+  def participants_string
+    JSON.parse(participants_json).map{|p| "#{p[0]} #{p[1]} (#{p[2]})"}.join(', ')
+  end
 end
