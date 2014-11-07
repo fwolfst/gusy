@@ -1,8 +1,41 @@
 # Helper methods defined here can be accessed in any controller or view in the application
+require 'rest_client'
+require 'securerandom'
 
 module Gusy
   class App
     module RegistrationHelper
+
+      def error_class? registration, field
+         return 'error' if registration && registration.errors[field]
+      end
+
+      def other_participant_html person
+        "<div class='three fields'> "+
+          "<div class='field'>"+
+            "<p>"+
+              "<label for='name'>Vorname</label>"+
+              "<input id='name' type='text' name='name[]' value='#{person[0]}'></input>"+
+            "</p>"+
+          "</div>"+
+          "<div class='field'>"+
+            "<p>"+
+              "<label for='lastname'>Nachname</label>"+
+              "<input id='lastname' type='text' name='lastname[]' value='#{person[1]}'></input>"+
+            "</p>"+
+          "</div>"+
+          "<div class='field'>"+
+            "<p>"+
+              "<label for='age'>Alter</label>"+
+              "<input id='age' type='text' name='age[]' value='#{person[2]}'></input>"+
+            "</p>"+
+          "</div>"+
+        "</div>"
+      end
+
+      def new_participant_html
+        other_participant_html ['', '', '']
+      end
       def couch_json_registration registration
         if registration.participants_json
           participants = JSON.parse(registration.participants_json)
