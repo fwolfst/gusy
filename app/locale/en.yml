@@ -36,6 +36,7 @@ en:
     open: This seminar does not require a registration.
     other_from_category: Other seminars to the topic
     other_from_referee: Other seminars from
+    not_found: Seminar not found
   referee:
     for_following_seminars: Referee for following seminars
     description: Description
@@ -56,6 +57,12 @@ en:
     register: Register
     further_persons: Further Participants
     add_person: add
+    room_wish: Accomodation wishes
+    save_failed: Some information missing for your registration (see below).
+    succeeded: Thank you for your registration! You should receive an email soon, if this is not the case, please get in touch with us!
+    real_error: There was a serious error, please contact us and let us know!
+    confirm_mail_subject: Your registration for the seminar
+    host_mail_subject: Registration for
   models:
     registration:
       attributes:
