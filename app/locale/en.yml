@@ -38,6 +38,10 @@ en:
     other_from_referee: Other seminars from
   referee:
     for_following_seminars: Referee for following seminars
+    description: Description
+    homepage: Homepage
+    future_seminars: Future Seminars
+    past_seminars: Past Seminars
   search:
     no_hits: Sorry nichts gefunden
   calendar:

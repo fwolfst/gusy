@@ -37,6 +37,9 @@ de:
     other_from_referee: Andere Veranstaltungen mit
   referee:
     for_following_seminars: Referent für folgende Seminare
+    description: Beschreibung
+    homepage: Homepage
+    future_seminars: Zukünftige Seminare
   search:
     search: Suche
     no_hits: Sorry nichts gefunden

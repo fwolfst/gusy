@@ -1,25 +1,44 @@
-%h2=@referee.full_name
+%center
+  %h2=@referee.full_name
 
-%h3=I18n.t('referee.for_following_seminars')
-%h4
-  Zukünftige Seminare
-%ul.ui.list
-  - @referee.seminars.select{|s| s.date_from >= Date.today}.each do |seminar|
-    %li.ui
-      =I18n.l(seminar.date_from, :format => :short)
-      =I18n.t('to')
-      =I18n.l(seminar.date_from, :format => :short)
-      =seminar_link seminar
-      (#{I18n.t('with')} #{(seminar.referees - [@referee]).map(&:full_name).join(" " + I18n.t('and') +" ")})
-%h4
-  Bereits gehaltene Seminare
-%ul.ui.list
-  - @referee.seminars.select{|s| s.date_from <= Date.today}.each do |seminar|
-    %li.ui
-      =I18n.l(seminar.date_from, :format => :short)
-      =I18n.t('to')
-      =I18n.l(seminar.date_from, :format => :short)
-      =seminar_link seminar
-      (#{I18n.t('with')} #{(seminar.referees - [@referee]).map(&:full_name).join(" " + I18n.t('and') +" ")})
+.ui.grid
+  .ui.row
+    .column
+    .column.nine.wide.column
+      %h4.ui.header.top.attached
+        =t('referee.description')
+      .ui.segment.attached
+        =@referee.description
+      %h4.ui.header.top.attached
+        =t('referee.homepage')
+      .ui.segment.attached
+        =@referee.homepage
+    .column.five.wide.column
+      .ui.segment
+        %img.rounded.ui.medium.image(src="/images/image2.jpg")
+    .column
 
-
+.ui.segment(style="opacity:0.8")
+  %h3=I18n.t('referee.for_following_seminars')
+  %h4
+    =t('referee.future_seminars')
+  %ul.ui.list
+    - @referee.seminars.select{|s| s.date_from >= Date.today}.each do |seminar|
+      %li.ui
+        =I18n.l(seminar.date_from, :format => :short)
+        =I18n.t('to')
+        =I18n.l(seminar.date_from, :format => :short)
+        =seminar_link seminar
+        (#{I18n.t('with')} #{(seminar.referees - [@referee]).map(&:full_name).join(" " + I18n.t('and') +" ")})
+  %h4
+    =t('referee.past_seminars')
+  %ul.ui.list
+    - @referee.seminars.select{|s| s.date_from <= Date.today}.each do |seminar|
+      %li.ui
+        =I18n.l(seminar.date_from, :format => :short)
+        =I18n.t('to')
+        =I18n.l(seminar.date_from, :format => :short)
+        =seminar_link seminar
+        (#{I18n.t('with')} #{(seminar.referees - [@referee]).map(&:full_name).join(" " + I18n.t('and') +" ")})
+  
+  
