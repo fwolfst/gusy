@@ -40,5 +40,4 @@
         =I18n.l(seminar.date_from, :format => :short)
         =seminar_link seminar
         (#{I18n.t('with')} #{(seminar.referees - [@referee]).map(&:full_name).join(" " + I18n.t('and') +" ")})
-  
-  
+
