@@ -17,10 +17,6 @@ module Gusy
 
     # Accomodation options.
     set :rooms, ['Eigenes Zelt', 'Mehrbettzimmer', 'Einzelzimmer', 'Doppelzimmer', '2-Bett-Zimmer', 'Hütte', 'Kubus', 'Bauwagen', 'Eigenes Wohnmobil/-wagen', 'Privat / Selbstorganisiert']
-    # Nasty workaround to access format helper
-    c = Class.new
-    c.extend Gusy::App::FormatHelper
-    set :rooms_param_hash, Hash[settings.rooms.collect {|v| [c.param_string(v), v]}]
 
     ##
     # Caching support.
