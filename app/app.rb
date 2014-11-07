@@ -11,6 +11,14 @@ module Gusy
 
     ## Mailer config
     set :delivery_method, :smtp => settings.config['smtp']
+    #{
+    #  :address              => "mymailserver.de",
+    #  :port                 => 25, 
+    #  :user_name            => "mymailaccount",
+    #  :password             => "mypass",
+    #  :authentication       => :plain,
+    #  :enable_starttls_auto => true}
+    #logger.warn(settings.delivery_method)
 
     # We want to allow iframe inclusion
     set :protection, :except => :frame_options
