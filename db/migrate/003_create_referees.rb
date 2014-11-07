@@ -7,6 +7,8 @@ Sequel.migration do
       Text :description
       Text :comment
       String :homepage
+      String :image_url
+      String :uuid
     end
 
     create_table :seminars_referees do
