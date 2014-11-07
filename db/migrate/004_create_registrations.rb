@@ -13,7 +13,7 @@ Sequel.migration do
       String :mobile
       Text :participants_json
       Text :accomodation_json
-      String :comment
+      Text :comment
       Boolean :accept_future_notice
       DateTime :timestamp
       # Seminar and booking request uuid deal with

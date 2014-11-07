@@ -6,28 +6,37 @@
 =i18n_short_to @seminar
 
 .ui.fluid.form.segment
-  = form_for :registration, '/seminar/register', :id => 'register' do |f|
+  = form_for :registration, '/seminar/register', :id => 'register', :class => 'ui form warning' do |f|
     %input(type="hidden" value="#{@seminar.id}" name="seminar_id")
+    - web_notice_text = strip_tags(@seminar.web_notice)
+    - if web_notice_text && !web_notice_text.strip.gsub("\"",'').empty?
+      .ui.segment.red
+        != @seminar.web_notice
     %small
-      = f.error_messages
+      -if @registration && @registration.errors && !@registration.errors.empty?
+        .ui.warning.message
+          .header
+            Es gab Fehler
+          -#= @registration.errors.inspect
       .two.fields
-        .field
-          = f.text_field_block :firstname, :caption => 'Vorname'
-        .field
-          = f.text_field_block :lastname,  :caption => 'Nachname', :class => 'field'
+        -# f.error_message_on ... :zip
+        .field{:class => error_class?(@registration, :firstname)}
+          = f.text_field_block :firstname
+        .field{:class => error_class?(@registration, :lastname)}
+          = f.text_field_block :lastname, :class => 'field'
       .three.fields
-        .field
+        .field{:class => error_class?(@registration, :street_and_no)}
           = f.text_field_block :street_and_no
-        .field
-          = f.text_field_block :zip,     :caption => 'PLZ'
-        .field
+        .field{:class => error_class?(@registration, :zip)}
+          = f.text_field_block :zip
+        .field{:class => error_class?(@registration, :city)}
           = f.text_field_block :city
       = f.text_field_block :country
       .three.fields
+        .field{:class => error_class?(@registration, :email)}
+          = f.text_field_block :email
         .field
-          = f.text_field_block :email,   :caption => 'E-Mail'
-        .field
-          = f.text_field_block :phone,   :caption => 'Telefon'
+          = f.text_field_block :phone
         .field
           = f.text_field_block :mobile
       = f.text_field_block :comment
@@ -35,26 +44,62 @@
         %small
           .ui.basic.accordion.field
             .title
+              %small
               %i.icon.dropdown
-              Weitere Teilnehmer
-            .content.field
-              .three.fields
-                .field
-                  = f.text_field_block :email,   :caption => 'Vorname'
-                .field
-                  = f.text_field_block :email,   :caption => 'Name'
-                .field
-                  = f.text_field_block :email,   :caption => 'Alter'
+              =t('registration.further_persons')
+            .content.field{:class => (@others && !@others.empty?) ? "active" : ""}
+              - if @others
+                - @others.each do |person|
+                  !=other_participant_html person
+              %input.ui.button#add_participant_btn{:type=>"button", :value=>t('registration.add_person')}
+              :javascript
+                $("#add_participant_btn").click(
+                  function () {
+                   $("#add_participant_btn").parent().prepend("#{new_participant_html}");
+                   $("#lastname").last()[0].value =
+                     $("#registration_lastname").first()[0].value;
+                  }
+                );
+      .fields
+        %small
+          .ui.basic.accordion.field
+            .title
+              %i.icon.dropdown
+              Raumwunsch
+            .content.field{:class => (@room_wishes && !@room_wishes.empty?) ? "active" : ""}
+              .field
+                %small
+                  - settings.rooms.each do |room|
+                    .ui.checkbox
+                      %input{:id => param_string(room),
+                        :name => "room_wish[]",
+                        :type => 'checkbox',
+                        :value => room, :checked => (@room_wishes && @room_wishes.include?(room)) ? 'checked' : false}
+                      %label{:for => param_string(room)}
+                        =room
 
-      %h5.ui.header.red Rücktrittsbedingungen
+      %h5.ui.header.red=t('registration.cancellation_conditions')
       %small
         = @seminar.cancellation_conditions
-      = f.check_box_block :accept_terms, :caption => 'Ich habe die Rücktrittsbedingungen gelesen und akzeptiere sie.'
+      %br
+      .ui.checkbox
+        %input{:id => "accept_terms",
+          :name => 'registration[accept_terms]',
+          :type => 'checkbox'}
+        %label{:for => 'accept_terms'}
+          =t('registration.accept_cancellation_conditions')
       %h5.ui.header.red Sieben Linden Seminar Portal
       %small
         Wir haben viele Ideen, wie wir diese Seite noch besser gestalten können und mit Funktionen wie z.B. Teilnehmerlisten, Mitfahrbörse oder Dokumentenhinterlage ausstatten.
-      = f.check_box_block :accept_future_notice, :caption => 'Ich würde am neuen Teilnehmerportal teilnehmen und möchte benachrichtigt werden sobald dieses fertig gestellt ist.'
-      = f.submit_block "Anmelden", :class => 'ui submit button blue'
+      %br
+      .ui.checkbox
+        %input{:id => "accept_future_notice",
+          :name => 'registration[accept_future_notice]',
+          :type => 'checkbox'}
+        %label{:for => 'accept_future_notice'}
+          Ich würde am neuen Teilnehmer/Innenportal teilnehmen und möchte benachrichtigt werden sobald dieses fetig gestellt ist.
+      = f.submit_block t('registration.register'), :class => 'ui submit button blue'
 
 :javascript
   $('.ui.accordion').accordion();
+
