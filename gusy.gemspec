@@ -7,6 +7,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Sieben Linden Guest System}
   gem.summary       = %q{Padrino app as seminar and guest frontend.}
   gem.homepage      = ""
+  gem.license       = ["GPL-3", "MIT"]
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
@@ -14,9 +15,6 @@ Gem::Specification.new do |gem|
   gem.name          = "gusy"
   gem.require_paths = ["lib", "app", "models"]
   gem.version       = Gusy::VERSION
-  gem.license       = ["GPL-3", "MIT"]
 
   gem.add_dependency "padrino-core"
-
-  #gem.add_development_dependency 'factory_girl'
 end
