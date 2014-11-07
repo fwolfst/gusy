@@ -33,3 +33,6 @@ gem 'padrino', '0.12.3'
 # %w(core support gen helpers cache mailer admin).each do |g|
 #   gem 'padrino-' + g, '0.12.3'
 # end
+
+# For legacy-CouchDB interaction
+gem 'rest_client'

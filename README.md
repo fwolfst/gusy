@@ -2,7 +2,7 @@
 
 A padrino gem, showing seminars for the ecovillage Sieben Linden homepage.
 On the way to a real "GUestSYstem".
-Except for a twist in registration creation (where data also is pushed to a CouchDB) the gusy solution should be rather general.
+Except for a twist in registration creation (where data also is pushed to a legacy system using a CouchDB) the gusy solution should be rather general.  If you want to abstract from this, send us a line, it should not be too difficult to sort it out.
 
 ## Usage
 
