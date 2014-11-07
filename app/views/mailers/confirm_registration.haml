@@ -1,0 +1,39 @@
+Danke für Deine Anmeldung für das Seminar "#{seminar.name}" vom #{I18n.l(seminar.date_from, :format => :short)} bis zum #{I18n.l(seminar.date_to, :format => :short)} im Ökodorf Sieben Linden
+\
+\
+Wir haben von dir folgende Daten erhalten:
+\
+\
+Anschrift:
+\
+#{registration.full_name}
+#{registration.street_and_no}
+#{registration.zip} #{registration.city}
+#{registration.country}
+\
+e-Mail: #{registration.email}
+Telefon: #{registration.phone}
+Handy: #{registration.mobile}
+\
+\
+Du hattest folgenden Kommentar:
+\
+#{registration.comment}
+\
+\
+Du hast die Anmeldung für folgende Personen vorgenommen:
+\
+#{registration.participants_string}
+\
+\
+Mit folgenden Wünschen bezüglich deiner/eurer Übernachtung:
+\
+#{registration.accomodation_json}
+\
+\
+Du hast folgende Rücktrittsbedingungen akzeptiert:
+\
+#{seminar.cancellation_conditions}
+\
+\
+Bei Fragen kontaktiere uns unter ....

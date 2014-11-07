@@ -1,0 +1,26 @@
+Anmeldung für "#{seminar.name}" vom #{I18n.l(seminar.date_from, :format => :short)} bis zum #{I18n.l(seminar.date_to, :format => :short)}
+\
+Anschrift:
+\
+#{registration.full_name}
+#{registration.street_and_no}
+#{registration.zip} #{registration.city}
+#{registration.country}
+\
+e-Mail: #{registration.email}
+Telefon: #{registration.phone}
+Handy: #{registration.mobile}
+\
+\
+Personen:
+\
+#{registration.participants_string}
+\
+\
+Wünsche zur Unterkunft:
+\
+#{registration.accomodation_json}
+\
+Bemerkungen:
+\
+#{registration.comment}
