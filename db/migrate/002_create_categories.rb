@@ -4,7 +4,7 @@ Sequel.migration do
       primary_key :id
       String :name
       String :shorturl
-      String :description
+      Text :description
       String :image_url
     end
   end
