@@ -14,6 +14,7 @@ Sequel.migration do
       Text :web_notice
       Text :web_notices
       Boolean :registration_needed
+      String :host_email
     end
 
     create_table :seminars_categories do
