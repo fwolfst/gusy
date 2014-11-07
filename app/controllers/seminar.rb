@@ -95,4 +95,33 @@ Gusy::App.controllers :seminar do
     @seminar = seminar params[:id]
     render 'registration'
   end
+
+  post :register do
+    logger.info params
+    @seminar = seminar(params['seminar_id']) || halt(404, t("seminars.not_found"))
+    @registration = registration_from_params params, @seminar
+    @others = params['name'].zip(params['lastname'], params['age']) rescue []
+    if !terms_ack? params
+      flash.now[:failure] = I18n.t('seminars.need_accept')
+    #elsif !participants_valid? @others
+    #  flash.now[:failure] = "Teilnehmer-Alter muss eine Zahl sein!"
+    elsif @registration.save
+      begin
+        register! @registration, @seminar
+        flash.now[:success] = t('registration.succeeded')
+        @registration = nil
+        @others = nil
+      rescue Exception => e
+        flash.now[:failure] = t('registration.real_error')
+        logger.error e.inspect
+        deliver(:registration_notifier, :error,
+                settings.config['notification_address'],
+                @registration, @seminar, e)
+      end
+    else
+      logger.warn("Saving registration failed: #{@registration.errors}")
+      flash.now[:failure] = t('registration.save_failed')
+    end
+    render 'show'
+  end
 end

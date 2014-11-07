@@ -56,4 +56,11 @@ Gusy::App.mailer :registration_notifier do
     locals :registration => registration, :seminar => seminar
     render 'notify_host'
   end
+
+  email :error do |host_address, registration, seminar, error|
+    to    host_address
+    from  "gusy-error"
+    subject "Error: #{error.inspect}"
+    body  "#{error.backtrace.join.inspect}"
+  end
 end
