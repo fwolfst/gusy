@@ -79,10 +79,12 @@ Gusy::App.controllers :seminar do
   get :referee, :with => :id do
     @menu = Gusy::GusyMenu.referee
     @referee = Referee[params[:id]] || halt(404, "Referee not found")
+    @title = "Sieben Linden Seminare: #{@referee.full_name}"
     render 'referee'
   end
 
   get :referees do
+    @title = "Sieben Linden Seminare: Referentenübersicht"
     @referees = Referee.order(:last_name)
     @menu = Gusy::GusyMenu.referee
     render 'referees'

@@ -46,6 +46,12 @@ en:
   for_example: for Example ...
   registration:
     for_seminar: for Seminar
+    accept_cancellation_conditions: I read and accept the cancellation
+      conditions.
+    cancellation_conditions: Cancellation Conditions
+    register: Register
+    further_persons: Further Participants
+    add_person: add
   models:
     registration:
       attributes:

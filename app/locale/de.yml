@@ -44,6 +44,14 @@ de:
     look: Schau dir unser Angebot an
     current: Aktueller Kalendar
   for_example: Zum Beispiel ...
+  registration:
+    cancellation_conditions: Rücktrittsbedingungen
+    accept_cancellation_conditions: Ich habe die Rücktrittsbedingungen
+      gelesen und akzeptiere sie.
+    for_seminar: zum Seminar
+    register: Anmelden
+    further_persons: Weitere Teilnehmer/Innen
+    add_person: Weitere hinzufügen
   models:
     registration:
       attributes:
@@ -57,6 +65,4 @@ de:
         phone: Telefonnummer
         mobile: Handynummer
         comment: Bemerkungen
-  registration:
-    for_seminar: zum Seminar
 
