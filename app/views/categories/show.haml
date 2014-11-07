@@ -2,8 +2,18 @@
   = I18n.t('seminars.seminars_of_category')
   = @category.name
 
-.ui.segment
-  %p=@category.description
+- if @category.description && !@category.description.empty?
+  .ui.segment
+    .ui.grid
+      .ui.row
+        .column
+        .column.nine.wide.column
+          %p=@category.description
+          %br
+        .column.five.wide.column
+          %img.rounded.ui.medium.image(src="#{@category.image_url}")
+        .column
+  %br
 
 .ui.grid
   .ui.row
