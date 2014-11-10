@@ -49,27 +49,27 @@
         - @seminar.get_web_notices.each do |notice|
           %h3=notice['label']
           !=notice['text']
-        %br
-        %h3=t('seminars.further_infos')
-        %a(href="http://siebenlinden.de/index.php?id=110")
+      %h4.ui.header.dividing.attached.top.inverted.purple=I18n.t('seminars.further_links')
+      .ui.segment.attached
+        %a(href="http://siebenlinden.de/index.php?id=110" target="_new")
           Gästebetrieb
         %br
-        %a(href="http://siebenlinden.de/index.php?id=62")
+        %a(href="http://siebenlinden.de/index.php?id=62" target="_new")
           Bildung für Nachhaltigkeit
         %br
-        %a(href="http://siebenlinden.de/index.php?id=88")
+        %a(href="http://siebenlinden.de/index.php?id=88" target="_new")
           Wissenswertes zur Anmeldung
         %br
-        %a(href="http://siebenlinden.de/index.php?id=85")
+        %a(href="http://siebenlinden.de/index.php?id=85" target="_new")
           Übernachten
         %br
-        %a(href="http://siebenlinden.de/index.php?id=22")
+        %a(href="http://siebenlinden.de/index.php?id=22" target="_new")
           Anreise
         %br
-        %a(href="http://siebenlinden.de/index.php?id=142")
+        %a(href="http://siebenlinden.de/index.php?id=142" target="_new")
           Barrierefreiheit
         %br
-        %a(href="http://siebenlinden.de/index.php?id=87")
+        %a(href="http://siebenlinden.de/index.php?id=87" target="_new")
           Bildungsprämie
 
     %h4.ui.header.dividing.attached.top.inverted.purple
