@@ -25,7 +25,7 @@ de:
     archive: Archiv
     categories: Themen
     description: Beschreibung
-    referees: Referenten/Innen
+    referees: Referenten_innen
     seminars_of_category: Seminare zum Thema
     registration: Anmeldung
     need_accept: Die Rücktrittsbedingungen müssen akzeptiert werden.
@@ -56,7 +56,7 @@ de:
       gelesen und akzeptiere sie.
     for_seminar: zum Seminar
     register: Anmelden
-    further_persons: Weitere Teilnehmer/Innen
+    further_persons: Weitere Teilnehmer_innen
     add_person: Weitere hinzufügen
     room_wish: Raumwunsch
     save_failed: Für Deine Anmeldungen fehlen noch Angaben (siehe unten).
