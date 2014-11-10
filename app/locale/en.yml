@@ -45,7 +45,9 @@ en:
     future_seminars: Future Seminars
     past_seminars: Past Seminars
   search:
-    no_hits: Sorry nichts gefunden
+    search: Search
+    no_matches: Sorry no hits
+    show_matches: Showing search hits
   calendar:
     current: Current Calendar
     look: Look at our schedule

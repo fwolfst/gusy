@@ -45,7 +45,8 @@ de:
     past_seminars: Bereits gehaltene Seminare
   search:
     search: Suche
-    no_hits: Sorry nichts gefunden
+    no_matches: Sorry nichts gefunden
+    show_matches: Zeige Such-Ergebnisse
   calendar:
     look: Schau dir unser Angebot an
     current: Aktueller Kalendar

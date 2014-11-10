@@ -63,14 +63,14 @@ Gusy::App.controllers :seminar do
   end
 
   get :search do
-    @title = "Sieben Linden: Seminarsuche #{@seminar.name}"
+    @title = "Sieben Linden: Seminarsuche"
     @seminars = Seminar.where(Sequel.ilike(:description, "%#{params[:search_term]}%")).all
     #Alternative:
     #@seminars = Seminar.grep(:description, "%#{params[:search_term]}%").all
     if !@seminars.empty?
-      flash.now[:success] = I18n.t('seminar/show_matches')
+      flash.now[:success] = I18n.t('search.show_matches')
     else
-      flash.now[:notice] = I18n.t('seminar/no_matches')
+      flash.now[:notice] = I18n.t('search.no_matches')
 
     end
     render 'list'
