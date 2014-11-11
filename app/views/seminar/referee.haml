@@ -9,13 +9,15 @@
         =t('referee.description')
       .ui.segment.attached
         =@referee.description
-      %h4.ui.header.top.attached
-        =t('referee.homepage')
-      .ui.segment.attached
-        =@referee.homepage
-    .column.five.wide.column
-      .ui.segment
-        %img.rounded.ui.medium.image(src="/images/image2.jpg")
+      - if @referee.homepage
+        %h4.ui.header.top.attached
+          =t('referee.homepage')
+        .ui.segment.attached
+          =@referee.homepage
+    - if @referee.image_url
+      .column.five.wide.column
+        .ui.segment
+          %img.rounded.ui.medium.image(src="#{@referee.image_url}" alt="Referee #{@referee.full_name}")
     .column
 
 .ui.segment(style="opacity:0.8")
