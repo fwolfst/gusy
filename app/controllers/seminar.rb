@@ -18,7 +18,7 @@ Gusy::App.controllers :seminar do
   end
 
   get :calendar do
-    @title = "Sieben Linden: Seminarkalendar"
+    @title = "Sieben Linden: Seminarkalender"
     @seminars = Seminar.where{date_from > Date.today}.all
     render 'calendar', :layout => 'iframeable'
   end
