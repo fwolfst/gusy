@@ -5,7 +5,7 @@ Gusy::App.controllers :seminar do
   end
 
   get :index do
-    @title = "Sieben Linden Seminare: Übersicht"
+    @title = t('headings.index')
     @categories = Category.all
     render 'index'
   end

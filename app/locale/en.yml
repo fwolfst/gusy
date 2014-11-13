@@ -79,4 +79,7 @@ en:
         phone: Phone Number
         mobile: Mobile Phone Number
         comment: Comment
+  headings:
+    index: "Sieben Linden Seminars: Overview"
+    overview: "Sieben Linden: Current Seminars"
 

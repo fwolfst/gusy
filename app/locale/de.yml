@@ -78,4 +78,6 @@ de:
         phone: Telefonnummer
         mobile: Handynummer
         comment: Bemerkungen
-
+  headings:
+    index: "Sieben Linden Seminare: Übersicht"
+    overview: "Sieben Linden: Aktuelle Seminare"
