@@ -20,12 +20,15 @@ en:
   category: Category
   language: Language
   seminars:
-    all: All Seminars
+    all: Alle Seminare
+    all_categories: All Topics
     archive: Archive
     calendar: Seminar Calendar
     calendar2: Seminar Calender
     categories: Topics
-    description: Beschreibung
+    past_categories: Topics of past years
+    current_categories: Current Topics
+    description: Description
     referees: Referees
     registration: Registration
     need_accept: You have to accept the cancellation terms.

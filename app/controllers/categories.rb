@@ -6,6 +6,7 @@ Gusy::App.controllers :categories do
 
   get :show, :with => :category do
     @category = category(params['category']) || halt(404, "Category not found")
+    @title = "#{t('seminars.seminars_of_category_title')} #{@category.name} - Ökodorf Sieben Linden"
     render 'show'
   end
 

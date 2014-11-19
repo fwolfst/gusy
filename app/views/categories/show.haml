@@ -8,7 +8,7 @@
       .ui.row
         .column
         .column.nine.wide.column
-          %p=@category.description
+          %p!=@category.description
           %br
         .column.five.wide.column
           %img.rounded.ui.medium.image(src="#{@category.image_url}")

@@ -14,19 +14,23 @@ de:
   to: bis
   dates: Datum
   more: mehr
-  category: Thema
+  category: Rubrik
   with: mit
   and: und
   language: Sprache
   seminars:
     all: Alle Seminare
+    all_categories: Alle Rubriken
     calendar: Seminarkalender
     calendar2: Seminar Kalender
     archive: Archiv
-    categories: Themen
+    categories: Rubriken
+    past_categories: Rubriken vergangener Jahre
+    current_categories: Aktuelle Rubriken
     description: Beschreibung
     referees: Referenten_innen
-    seminars_of_category: Seminare zum Thema
+    seminars_of_category: Seminare in der Rubrik
+    seminars_of_category_title: Seminare in der Rubrik
     registration: Anmeldung
     need_accept: Die Rücktrittsbedingungen müssen akzeptiert werden.
     further_infos: Weitere Informationen
@@ -34,7 +38,7 @@ de:
     related: Ähnliche Seminare
     is_in_past: Dieses Seminar liegt in der Vergangenheit.
     open: Diese Veranstaltung ist ein offenes Angebot. Eine Anmeldung ist nicht erfolderlich.
-    other_from_category: Andere Veranstaltungen zum Thema
+    other_from_category: Andere Veranstaltungen in der Rubrik
     other_from_referee: Andere Veranstaltungen mit
     not_found: Seminar nicht gefunden
   referee:
