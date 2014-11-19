@@ -5,10 +5,11 @@
   .ui.row
     .column
     .column.nine.wide.column
-      %h4.ui.header.top.attached
-        =t('referee.description')
-      .ui.segment.attached
-        =@referee.description
+      - if @referee.description
+        %h4.ui.header.top.attached
+          =t('referee.description')
+        .ui.segment.attached
+          =@referee.description
       - if @referee.homepage
         %h4.ui.header.top.attached
           =t('referee.homepage')
