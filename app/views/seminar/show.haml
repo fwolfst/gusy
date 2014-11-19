@@ -81,7 +81,7 @@
             =t('seminars.other_from_category')
             =category.name
           %ul.ui.list
-            - category.seminars.each do |related_seminar|
+            - category.seminars.sort_by(&:date_from).each do |related_seminar|
               %li
                 -# How about partial, :object => 
                 =partial('seminar/seminar_link', :locals => {:seminar => related_seminar})
@@ -92,6 +92,6 @@
             =t('seminars.other_from_referee')
             =referee.full_name
           %ul.ui.list
-            - (referee.seminars - [@seminar]).each do |seminar|
+            - (referee.seminars - [@seminar]).sort_by(&:date_from).each do |seminar|
               %li
                 =partial('seminar/seminar_link', :locals => {:seminar => seminar})
