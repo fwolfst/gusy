@@ -64,7 +64,9 @@ Gusy::App.controllers :seminar do
 
   get :search do
     @title = "Sieben Linden: Seminarsuche"
-    @seminars = Seminar.where(Sequel.ilike(:description, "%#{params[:search_term]}%")).all
+    @seminars_desc = Seminar.where(Sequel.ilike(:description, "%#{params[:search_term]}%")).all
+    @seminars_name = Seminar.where(Sequel.ilike(:name, "%#{params[:search_term]}%")).all
+    @seminars = @seminars_desc | @seminars_name
     #Alternative:
     #@seminars = Seminar.grep(:description, "%#{params[:search_term]}%").all
     if !@seminars.empty?
