@@ -51,8 +51,8 @@ Gusy::App.controllers :seminar do
     render 'next_3', :layout => 'iframeable'
   end
 
-  get :show, :with => :id do
-    @seminar = seminar(params['id']) || halt(404, "Seminar not found")
+  get :show, :with => :id_or_shorturl do
+    @seminar = seminar(params['id_or_shorturl']) || halt(404, "Seminar not found")
     @title = "Sieben Linden: Seminar #{@seminar.name}"
     render 'show'
   end
