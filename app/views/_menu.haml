@@ -10,7 +10,11 @@
 
       = I18n.t('language')
       - I18n.available_locales.each do |locale|
-        %a.item(href="/#{locale}/#{request.path_info}")=locale
+        - if I18n.locale == locale.to_sym
+          %b
+            %a.item(href="/#{locale}/#{request.path_info}")=locale
+        - else
+          %a.item(href="/#{locale}/#{request.path_info}")=locale
       .item
         %form.item(action="/seminar/search" method="GET" class="" style="padding:0px;margin:0px")
           .ui.icon.input.item
