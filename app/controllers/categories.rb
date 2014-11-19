@@ -1,3 +1,4 @@
+# encoding: utf-8
 Gusy::App.controllers :categories do
   before do
     @menu = Gusy::GusyMenu.categories
