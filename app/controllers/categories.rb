@@ -11,6 +11,7 @@ Gusy::App.controllers :categories do
   end
 
   get :list do
+    @title = t('categories.list_heading')
     @categories = Category.all
     render 'list'
   end
