@@ -8,6 +8,7 @@ class Registration < Sequel::Model
     validates_presence :street_and_no
     validates_presence :zip
     validates_presence :city
+    validates_format /^.+@.+$/, :email
   end
 
   def full_name
