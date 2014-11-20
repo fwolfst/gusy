@@ -40,6 +40,9 @@
         =t('seminars.is_in_past')
 
   #side_column.column
+    - if @seminar.thumbnail_url
+      .ui.segment
+        %img.rounded.ui.medium.image(src="http://siebenlinden.de/fileadmin/img/seminar/#{@seminar.thumbnail_url}")
     - if @seminar.date_from >= Date.today
       %h4.ui.header.dividing.attached.top.inverted.purple=I18n.t('seminars.further_infos')
       .ui.segment.attached
