@@ -72,6 +72,7 @@
                   :value => room, :checked => (@registration && @registration.accomodation_json.include?(room)) ? 'checked' : false}
                 %label{:for => param_string(room)}
                   =room
+              .div(width="10px")
 
       %h5.ui.header.red=t('registration.cancellation_conditions')
       %small
