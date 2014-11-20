@@ -48,18 +48,19 @@
               %i.icon.dropdown
               =t('registration.further_persons')
             .content.field{:class => (@others && !@others.empty?) ? "active" : ""}
-              - if @others
-                - @others.each do |person|
-                  !=other_participant_html person
-              %input.ui.button#add_participant_btn{:type=>"button", :value=>t('registration.add_person')}
-              :javascript
-                $("#add_participant_btn").click(
-                  function () {
-                   $("#add_participant_btn").parent().prepend("#{new_participant_html}");
-                   $("#lastname").last()[0].value =
-                     $("#registration_lastname").first()[0].value;
-                  }
-                );
+              %small
+                - if @others
+                  - @others.each do |person|
+                    !=other_participant_html person
+                %input.ui.button#add_participant_btn{:type=>"button", :value=>t('registration.add_person')}
+                :javascript
+                  $("#add_participant_btn").click(
+                    function () {
+                     $("#add_participant_btn").parent().prepend("#{new_participant_html}");
+                     $("#lastname").last()[0].value =
+                       $("#registration_lastname").first()[0].value;
+                    }
+                  );
       .fields
         .fields.ui.basic
           .field
