@@ -95,6 +95,10 @@ module Gusy
       end
     end
 
+    get /.*index\.php.*/ do
+      redirect "http://siebenlinden.de/index.php?#{request.query_string.to_s}"
+    end
+
     get '/impressum' do
       render 'impressum'
     end
