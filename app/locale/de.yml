@@ -61,9 +61,9 @@ de:
       gelesen und akzeptiere sie.
     for_seminar: zum Seminar
     register: Anmelden
-    further_persons: Weitere Teilnehmer_innen
+    further_persons: Weitere Teilnehmer_innen / Begleitpersonen
     add_person: Weitere hinzufügen
-    room_wish: Raumwunsch
+    room_wish: Gewünschte Unterkunft (mehrere Angaben möglich)
     save_failed: Für Deine Anmeldungen fehlen noch Angaben (siehe unten).
     succeeded: Danke für deine Anmeldungung. Du solltest in Kürze eine e-Mail erhalten. Ist dies nicht der Fall, melde dich bitte.
     real_error: Es gab einen echten Fehler, bitte kontaktiere uns und lass es uns wissen!

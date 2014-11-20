@@ -61,9 +61,9 @@ en:
       conditions.
     cancellation_conditions: Cancellation Conditions
     register: Register
-    further_persons: Further Participants
+    further_persons: Further Participants/Companions
     add_person: add
-    room_wish: Accomodation wishes
+    room_wish: Accomodation wishes (multiple choices possible)
     save_failed: Some information missing for your registration (see below).
     succeeded: Thank you for your registration! You should receive an email soon, if this is not the case, please get in touch with us!
     real_error: There was a serious error, please contact us and let us know!
