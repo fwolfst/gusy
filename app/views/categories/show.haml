@@ -19,7 +19,7 @@
   .ui.row
     .column
     .ui.segment.fourteen.wide.column
-      - @category.seminars.group_by{|seminar| seminar_year_month(seminar)}.each do |time, seminars|
+      - @category.seminars.sort_by(&:date_from).group_by{|seminar| seminar_year_month(seminar)}.each do |time, seminars|
         %h5.ui.dividing.header
           =I18n.t(:"date.month_names")[time[1]]
           =time[0]
