@@ -31,7 +31,7 @@
 
     %h3.blue.ui.header.attached.inverted.top.inverted.purple=I18n.t('seminars.registration')
     .ui.segment.attached
-      - if @seminar.date_from >= Date.today
+      - if @seminar.date_from >= Date.today - 1
         - if @seminar.registration_needed
           = render_partial 'seminar/registration'# :engine => 'haml'
         - else
@@ -40,7 +40,7 @@
         =t('seminars.is_in_past')
 
   #side_column.column
-    - if @seminar.thumbnail_url
+    - if @seminar.thumbnail_url && !@seminar.thumbnail_url.empty?
       .ui.segment
         %img.rounded.ui.medium.image(src="http://siebenlinden.de/fileadmin/img/seminar/#{@seminar.thumbnail_url}")
     - if @seminar.date_from >= Date.today
