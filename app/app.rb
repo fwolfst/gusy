@@ -83,6 +83,7 @@ module Gusy
     #   end
 
     error 404 do
+      @title = "Oh no!"
       render 'errors/404'
     end
 
