@@ -87,12 +87,14 @@ module Gusy
       render 'errors/404'
     end
 
+    # Set locale according to pre-postfix
     before do
       @menu = Gusy::GusyMenu.new
+      I18n.locale = session[:locale] || :de
       if request.path_info =~ /^\/(#{I18n.available_locales.join('|')})(.*)/
-          I18n.locale = $1.to_sym
-          logger.info ("set locale #{I18n.locale}")
-          redirect $2
+        session[:locale] = $1.to_sym
+        logger.info ("update locale #{session[:locale]}")
+        redirect $2
       end
     end
 
