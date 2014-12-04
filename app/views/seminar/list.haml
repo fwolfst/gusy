@@ -6,5 +6,5 @@
         =I18n.t(:"date.month_names")[time[1]]
         =time[0]
     #seminar.ui.items
-      - seminars.each do |seminar|
+      - seminars.sort_by(&:date_from).each do |seminar|
         = partial('seminar/item', :locals => {:seminar => seminar, :time => time})
