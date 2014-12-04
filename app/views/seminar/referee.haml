@@ -35,7 +35,8 @@
           =I18n.t('to')
           =I18n.l(seminar.date_from, :format => :short)
           =seminar_link seminar
-          (#{I18n.t('with')} #{(seminar.referees - [@referee]).map(&:full_name).join(" " + I18n.t('and') +" ")})
+          - if seminar.referees.length >= 2
+            (#{I18n.t('with')} #{(seminar.referees - [@referee]).map(&:full_name).join(" " + I18n.t('and') +" ")})
   - if !past_seminars.empty?
     %h4
       =t('referee.past_seminars')
@@ -46,5 +47,6 @@
           =I18n.t('to')
           =I18n.l(seminar.date_from, :format => :short)
           =seminar_link seminar
-          (#{I18n.t('with')} #{(seminar.referees - [@referee]).map(&:full_name).join(" " + I18n.t('and') +" ")})
+          - if seminar.referees.length >= 2
+            (#{I18n.t('with')} #{(seminar.referees - [@referee]).map(&:full_name).join(" " + I18n.t('and') +" ")})
   
