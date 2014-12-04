@@ -8,7 +8,7 @@
 %ul
   - today = Date.today
   - two_years_ago = Date.civil(today.year - 0, today.month - 3, today.day)
-  - @categories.select{|c| c.last_seminar && c.last_seminar.date_from >= two_years_ago}.each do |category|
+  - @categories.sort_by(&:name).select{|c| c.last_seminar && c.last_seminar.date_from >= two_years_ago}.each do |category|
     %li
       =category_link category
       =category.description
