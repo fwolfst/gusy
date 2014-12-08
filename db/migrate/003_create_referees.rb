@@ -13,8 +13,8 @@ Sequel.migration do
 
     create_table :seminars_referees do
       primary_key :id
-      foreign_key :seminar_id, :seminars
-      foreign_key :referee_id, :referees
+      foreign_key :seminar_id, :seminars, :on_delete => :cascade
+      foreign_key :referee_id, :referees, :on_delete => :cascade
       Text      :qualification_text
     end
   end

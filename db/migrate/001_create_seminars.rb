@@ -19,8 +19,8 @@ Sequel.migration do
 
     create_table :seminars_categories do
       primary_key :id
-      foreign_key :seminar_id, :seminars
-      foreign_key :category_id, :categories
+      foreign_key :seminar_id, :seminars, :on_delete => :cascade
+      foreign_key :category_id, :categories, :on_delete => :cascade
     end
   end
 
