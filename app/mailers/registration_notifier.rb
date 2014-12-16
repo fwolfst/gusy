@@ -52,7 +52,7 @@ Gusy::App.mailer :registration_notifier do
   email :notify_host do |host_address, registration, seminar|
     from "#{registration.full_name} <#{registration.email}>"
     to   host_address
-    subject "#{I18n.t('registration.host_mail_subject')} #{seminar.name} (#{seminar.date_from})"
+    subject "#{I18n.t('registration.host_mail_subject')} #{seminar.name} (#{I18n.l(seminar.date_from, :format => :short)} - #{I18n.l(seminar.date_to, :format => :short)})"
     locals :registration => registration, :seminar => seminar
     render 'notify_host'
   end
