@@ -25,4 +25,18 @@ RSpec.describe Seminar do
       expect(seminar_moreday.one_day?).to eq false
     end
   end
+
+  describe "#spans_month?" do
+    seminar_normal = Seminar.new(:name => "today",
+                                :date_from => Date.civil(2014,11,10),
+                                :date_to => Date.civil(2014,11,12))
+    seminar_monthspan = Seminar.new(:name => "today",
+                                :date_from => Date.civil(2014,11,10),
+                                :date_to => Date.civil(2014,12,12))
+    it "detects month spans" do
+      expect(seminar_normal.spans_month?).to eq false
+      expect(seminar_monthspan.spans_month?).to eq true
+    end
+
+  end
 end

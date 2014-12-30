@@ -20,6 +20,10 @@ class Seminar < Sequel::Model
     date_from.month == date_to.month && date_from.day == date_to.day
   end
 
+  def spans_month?
+    date_from.month < date_to.month
+  end
+
   # Scoped by time.
   dataset_module do
     def in_this_year
