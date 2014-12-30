@@ -16,6 +16,10 @@ class Seminar < Sequel::Model
     JSON.parse web_notices rescue []
   end
 
+  def one_day?
+    date_from.month == date_to.month && date_from.day == date_to.day
+  end
+
   # Scoped by time.
   dataset_module do
     def in_this_year
