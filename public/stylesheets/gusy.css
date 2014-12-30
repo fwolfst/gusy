@@ -55,3 +55,27 @@ i.plop:hover {
   margin-top: -4em;
   clear:both;
 }
+.content.seminardate {
+  color: grey;
+}
+.seminaritem .content .main {
+  height: 350px;
+}
+.seminaritem .main .name {
+  height: 60px;
+}
+.seminaritem .description {
+  height: 290px;
+}
+.seminaritem .description-text {
+  height: 230px;
+}
+.seminaritem .description-text a {
+ display:inline-block;
+ text-overflow:ellipsis;
+}
+.description-link {
+  height:40px;
+  position:relative;
+  bottom:10px;
+}

@@ -1,38 +1,41 @@
-.item
-  -#.ui.ribbon.label
-  -#  = I18n.l(seminar.date_from, :format => :monthday)
-  -#  #{"-"}
-  -#  = I18n.l(seminar.date_to, :format => :monthday)
-    -# Include month if its next month
-  .content
-    -#.meta
-    -#  Meta
-    .ui.ribbon.label.green
-      -# TODO refac
-      = I18n.l(seminar.date_from, :format => :monthday)
+.item.attached.seminaritem
+  .content.seminardate
+    - if !seminar.one_day?
+      = I18n.l(seminar.date_from, :format => :monthsday)
+      - if seminar.spans_month?
+        = I18n.t(:"date.month_names")[seminar.date_from.month][0..2] rescue ""
       #{"-"}
-      = I18n.l(seminar.date_to, :format => :monthday)
-      - if seminar.date_from.day > seminar.date_to.day
-        =I18n.t(:"date.month_names")[(time[1]-1)%12 + 2][0..2]
-    -#  Middle Top ribbon
-    %a.name.blank(href="#{seminar_url seminar}")
-      = seminar.name
-    %br
-    - seminar.categories.each do |category|
-      .ui.label
-        = category_link category
-    %p.description
-      %br
+    = I18n.l(seminar.date_to, :format => :monthsday)
+    = I18n.t(:"date.month_names")[seminar.date_to.month][0..2] rescue ""
+
+  - if false && !seminar.thumbnail_url.nil? && !seminar.thumbnail_url.empty?
+    .image(style="height:220px;background-color:white;")
+      %img.rounded.ui.medium.image(src="/images/image#{rand(5) + 1}.jpg")
+  .content.main
+    .name
       %a.blank(href="#{seminar_url seminar}")
-        - trunc_desc = truncate(strip_tags(seminar.description_short), :length => 230)
-        -# trunc_desc = truncate(seminar.description, :length => 530)
-        = trunc_desc
-      %br
-      %br
-      %a(href="#{seminar_url(seminar)}")
-        mehr ...
+        = seminar.name
+    -#%br
+    -#- seminar.categories.each do |category|
+    -#  .ui.label.green
+    -#    = category_link category
+    .description
+      .description-text
+        %br
+        %a.blank.description(href="#{seminar_url seminar}")
+          - trunc_desc = truncate(strip_tags(seminar.description_short), :length => 330)
+          -# trunc_desc = truncate(seminar.description, :length => 230)
+          != trunc_desc
+      .description-link
+        %br
+        %br
+        %a(href="#{seminar_url(seminar)}")
+          mehr ...
   -#.ui.ribbon.label
   -#  Bottom ribbon
   -#.extra
-  -#  %a(href="#{seminar_url(seminar)}")
-  -#    mehr ...
+  -#  - seminar.categories.each do |category|
+  -#    .ui.label.grey
+  -#      = category_link category
+  -#  -#%a(href="#{seminar_url(seminar)}")
+  -#  -#  mehr ...
