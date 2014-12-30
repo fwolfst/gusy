@@ -4,6 +4,7 @@ de:
       short: "%d.%m.%Y"
       daymonth: "%d.%m."
       monthday: "%d"
+      monthsday: "%d."
   date:
     formats:
       short: "%d.%m.%Y"
