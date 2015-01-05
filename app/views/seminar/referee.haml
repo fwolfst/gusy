@@ -33,7 +33,7 @@
         %li.ui
           =I18n.l(seminar.date_from, :format => :short)
           =I18n.t('to')
-          =I18n.l(seminar.date_from, :format => :short)
+          =I18n.l(seminar.date_to, :format => :short)
           =seminar_link seminar
           - if seminar.referees.length >= 2
             (#{I18n.t('with')} #{(seminar.referees - [@referee]).map(&:full_name).join(" " + I18n.t('and') +" ")})
@@ -45,7 +45,7 @@
         %li.ui
           =I18n.l(seminar.date_from, :format => :short)
           =I18n.t('to')
-          =I18n.l(seminar.date_from, :format => :short)
+          =I18n.l(seminar.date_to, :format => :short)
           =seminar_link seminar
           - if seminar.referees.length >= 2
             (#{I18n.t('with')} #{(seminar.referees - [@referee]).map(&:full_name).join(" " + I18n.t('and') +" ")})
