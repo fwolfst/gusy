@@ -1,24 +1,29 @@
+-#- content_for :meta_tags
+-#  %meta bla
+
 .ui.one.column.page.grid
   .column
-    %h2.ui.header="Seminar: #{@seminar.name}"
+    %h2.ui.header.logored="Seminar: #{@seminar.name}"
 
 %input(type="hidden" name="seminar-uuid" value="#{@seminar.uuid}")
 %input(type="hidden" name="seminar-shorturl" value="#{@seminar.shorturl}")
 
 .ui.two.column.page.grid.stackable
   .column
-    %h5.ui.header.attached.top.inverted.blue=I18n.t('seminars.categories')
-    .ui.segment.attached
-      - @seminar.categories.each do |category|
-        .ui.label=category_link(category)
+    .ui.segment
+      %b.logored
+        =I18n.l(@seminar.date_from, :format => :short)
+        bis
+        =I18n.l(@seminar.date_to,   :format => :short)
+      %br
+      - if @seminar.categories.length > 0
+        %span(class="logoblue")
+          = t('seminars.categories')
+          = ":"
+          - @seminar.categories.each do |category|
+            = link_to category.name, category_url(category), :class => "logoblue"
 
-    %h5.ui.header.attached.top.inverted.blue=I18n.t('dates')
-    .ui.segment.attached
-      =I18n.l(@seminar.date_from, :format => :short)
-      bis
-      =I18n.l(@seminar.date_to,   :format => :short)
-
-    %h4.ui.header.attached.top.inverted.purple=I18n.t('seminars.description')
+    %h4.ui.header.attached.top.inverted.seminarinfobox=I18n.t('seminars.description')
     .ui.segment.attached
       != @seminar.description
 
@@ -29,7 +34,7 @@
             %li=referee_link referee
             =Qualification.find(:referee => referee, :seminar => @seminar).qualification_text
 
-    %h3.blue.ui.header.attached.inverted.top.inverted.purple=I18n.t('seminars.registration')
+    %h3.blue.ui.header.attached.inverted.top.inverted.seminarinfobox=I18n.t('seminars.registration')
     .ui.segment.attached
       - if @seminar.date_from >= Date.today - 1
         - if @seminar.registration_needed
@@ -44,15 +49,15 @@
       .ui.segment
         %img.rounded.ui.medium.image(src="http://siebenlinden.de/fileadmin/img/seminar/#{@seminar.thumbnail_url}")
     - if @seminar.date_from >= Date.today
-      %h4.ui.header.dividing.attached.top.inverted.purple=I18n.t('seminars.further_infos')
+      %h4.ui.header.dividing.attached.top.inverted.seminarinfobox=I18n.t('seminars.further_infos')
       .ui.segment.attached
         - web_notice_text = strip_tags(@seminar.web_notice)
         - if web_notice_text && !web_notice_text.strip.gsub("\"",'').empty?
           != @seminar.web_notice
         - @seminar.get_web_notices.each do |notice|
-          %h3=notice['label']
+          %h3.logoblue=notice['label']
           !=notice['text']
-      %h4.ui.header.dividing.attached.top.inverted.purple=I18n.t('seminars.further_links')
+      %h4.ui.header.dividing.attached.top.inverted.seminarinfobox=I18n.t('seminars.further_links')
       .ui.segment.attached
         %a(href="http://siebenlinden.de/index.php?id=110" target="_new")
           Gästebetrieb
@@ -75,7 +80,7 @@
         %a(href="http://siebenlinden.de/index.php?id=87" target="_new")
           Bildungsprämie
 
-    %h4.ui.header.dividing.attached.top.inverted.purple
+    %h4.ui.header.dividing.attached.top.inverted.seminarinfobox
       =I18n.t('seminars.related')
     .ui.segment.attached
       - @seminar.categories.each do |category|

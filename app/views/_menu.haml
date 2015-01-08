@@ -1,25 +1,9 @@
+%br(style="clear:both;")
 #menu.ui.menu{:class => @menu.class_has_submenu}
   .menu
     =link_to I18n.t('seminars.calendar'), url(:seminar, :index), :class=>"item #{@menu.class_calendar}"
     =link_to I18n.t('seminars.categories'), url(:categories, :index), :class=>"item #{@menu.class_categories}"
     =link_to I18n.t('seminars.referees'), url(:seminar, :referees), :class=>"item #{@menu.class_referees}"
-    .right.menu
-      %b
-        %a.item(href="http://siebenlinden.de/")
-          siebenlinden.de
-
-      = I18n.t('language')
-      - I18n.available_locales.each do |locale|
-        - if I18n.locale == locale.to_sym
-          %b
-            %a.item(href="/#{locale}/#{request.path_info}")=locale
-        - else
-          %a.item(href="/#{locale}/#{request.path_info}")=locale
-      .item
-        %form.item(action="/seminar/search" method="GET" class="" style="padding:0px;margin:0px")
-          .ui.icon.input.item
-            %input{:placeholder => I18n.t('search'), :name =>"search_term"}
-              %i.search.link.icon
   -if @menu && @menu.has_submenu?
     .ui.sub.menu.tiered
       -#.right.menu
@@ -30,16 +14,16 @@
       - if @menu.seminar_calendar
         %a.item{:href => url(:seminar, :current), :class => @menu.class_current}
           aktuell
-        %a.item{:href => url(:seminar, :list, :year => Date.today.year), :class => @menu.class_year(Date.today.year)}
-          =Date.today.year
-        %a.item{:href => url(:seminar, :list, :year => Date.today.year + 1), :class => @menu.class_year(Date.today.year + 1)}
-          =Date.today.year + 1
+        %a.item{:href => url(:seminar, :list, :year => this_year), :class => @menu.class_year(Date.today.year)}
+          =this_year
+        %a.item{:href => url(:seminar, :list, :year => next_year), :class => @menu.class_year(Date.today.year + 1)}
+          =next_year
           - if @menu.seminar_calendar.year
             .ui.sub.menu
-              %a.item{:href => url(:seminar, :list, :year => @menu.seminar_calendar.year)}
+              %a.item.logored{:href => url(:seminar, :list, :year => @menu.seminar_calendar.year)}
                 alle
               - I18n.t(:"date.month_names").each_with_index do |month, idx|
-                %a.item{:href => url(:seminar, :list, :year => @menu.seminar_calendar.year, :month => idx), :class => @menu.class_month(idx)}
+                %a.logoblue.item{:href => url(:seminar, :list, :year => @menu.seminar_calendar.year, :month => idx), :class => @menu.class_month(idx)}
                   =month
 
       - if @menu.all
@@ -51,11 +35,11 @@
           %a.item{:href => "##{idx}"}=month
         %a.item
           zukunft
-      - if @menu.categories
-        -#%a.item
-        -#  all
-        -#- @categories.each do |category|
-        -#  %a.item{:href => category_url(category)}=category.name
-        -#%a.item
-        -#  Archiv
+      -#- if @menu.categories
+      -#  -#%a.item
+      -#  -#  all
+      -#  -#- @categories.each do |category|
+      -#  -#  %a.item{:href => category_url(category)}=category.name
+      -#  -#%a.item
+      -#  -#  Archiv
 

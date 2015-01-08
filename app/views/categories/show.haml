@@ -29,7 +29,7 @@
               .ui.label
                 = from_to_format seminar
               .content
-                %a.header{:href=>url(:seminar, :show, seminar.id)}=seminar.name
+                %a.header{:href=>seminar_url(seminar)}=seminar.name
                 .description
                   -if !seminar.referees.empty?
                     (#{I18n.t('with')} #{seminar.referees.map(&:full_name).join(' ' + I18n.t('and') + ' ')})

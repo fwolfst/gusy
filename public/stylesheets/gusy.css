@@ -3,13 +3,54 @@ html {
 }
 body {
   font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
-  background-image:url('/images/heart.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   height: 100%;
 }
 
+#head {
+  width: 100%;
+  /*
+  background-image:url('/images/7l_header.png.jpeg');
+  background-size: cover;
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  */
+}
+
+#head_bg {
+  width: 100%;
+  float:left;
+  opacity: 0.4;
+  position:relative;
+}
+
+#head_logo {
+  position: absolute;
+  width: 100%;
+  left:1em;
+  top: 5%;
+}
+
+#corner_menu {
+  position: absolute;
+  right: 2%;
+  height:100%;
+  top: 6%;
+}
+
+#menu {
+  position:relative;
+  top: -20px;
+  /*
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
+  /*
+  background-image:url('/images/seminare_bg.jpg');
+  background-size: cover;
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100px;
+  */
+}
 h2.calendar {
   font-size: 12px;
 }
@@ -58,11 +99,15 @@ i.plop:hover {
 .content.seminardate {
   color: grey;
 }
+.seminaritem {
+  box-shadow: 1px 1px 1px 1px rgba(10, 113, 180, 0.2) !important;
+}
 .seminaritem .content .main {
   height: 350px;
 }
 .seminaritem .main .name {
   height: 60px;
+  text-overflow: ellipsis;
 }
 .seminaritem .description {
   height: 290px;
@@ -74,8 +119,37 @@ i.plop:hover {
  display:inline-block;
  text-overflow:ellipsis;
 }
+.seminarinfobox {
+  color: #0a71b4 !important;
+  background-color: #ffffff !important;
+}
+.seminarinfobox h3,h4,h5 {
+  color: #0a71b4 !important;
+}
 .description-link {
   height:40px;
   position:relative;
   bottom:10px;
+}
+.bgfit {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.logogreen {
+  color: #7ab031 !important;
+}
+.logored {
+  color: #e2001a !important;
+}
+.logoblue {
+  color: #0a71b4 !important;
+}
+.logoorange {
+  color: #f29400 !important;
+}
+.logolightgreen {
+  color: #c9d30f !important;
+}
+.logobrown {
+  color: #bf935b !important;
 }

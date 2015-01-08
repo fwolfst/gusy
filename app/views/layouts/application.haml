@@ -9,7 +9,9 @@
   %body.ui
     #no-foot
       #topheader
+        = partial('head')
         = partial('menu', :object => @menu)
+      %br(style="clear:both;")
       #messages
         - if flash[:notice]
           .ui.message
@@ -30,11 +32,11 @@
                 %i.icon.frown.large
       #content(style="height:100%;")
         = yield
-      #sidebar
+      -#sidebar
     #footer.ui.segment
-      .ui.column
+      .ui.column.logoblue
         .one.column.align-center
           Sieben Linden Guest System
-          | Copyright 2014 Freundeskreis Ökodorf e.V.
+          | Copyright 2014,2015 Freundeskreis Ökodorf e.V.
           |
-          %a(href="/impressum") Impressum
+          %a.logoblue(href="/impressum") Impressum

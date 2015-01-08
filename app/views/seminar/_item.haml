@@ -13,7 +13,7 @@
       %img.rounded.ui.medium.image(src="/images/image#{rand(5) + 1}.jpg")
   .content.main
     .name
-      %a.blank(href="#{seminar_url seminar}")
+      %a.logored.blank(href="#{seminar_url seminar}")
         = seminar.name
     -#%br
     -#- seminar.categories.each do |category|
@@ -29,8 +29,8 @@
       .description-link
         %br
         %br
-        %a(href="#{seminar_url(seminar)}")
-          mehr ...
+        %a.logoblue(href="#{seminar_url(seminar)}")
+          =t('more')
   -#.ui.ribbon.label
   -#  Bottom ribbon
   -#.extra

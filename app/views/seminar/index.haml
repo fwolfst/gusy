@@ -3,8 +3,8 @@
     .ui.items
       .item
         .content.align-center
-          .name
-            =I18n.t('seminars.calendar2')
+          .name.logored
+            =I18n.t('seminars.calendar')
           .description
             %a.blank(href="#{url :seminar, :current}")
               %i.ui.calendar.icon.massive.center.aligned(style='width:100%;')
@@ -12,17 +12,17 @@
             =I18n.t('calendar.look')
             %br
             %br
-            =link_to I18n.t('calendar.current'), url(:seminar, :current)
+            =link_to I18n.t('calendar.current'), url(:seminar, :current), :class => "logoblue"
             %br
-            =link_to "2014", url(:seminar, :list, :year => '2014')
+            =link_to "2014", url(:seminar, :list, :year => '2014'), :class => "logoblue"
             %br
-            =link_to "2015", url(:seminar, :list, :year => '2015')
+            =link_to "2015", url(:seminar, :list, :year => '2015'), :class => "logoblue"
             -#%br
             -#=link_to "Archiv", url(:seminar, :all)
 
       .item
         .content.align-center
-          .name
+          .name.logogreen
             =I18n.t('seminars.categories')
           .description
             %a.blank(href="#{url :categories, :list}")
@@ -35,10 +35,10 @@
               .ui.label=category_link(category)
               %br
             %br
-            =link_to t('seminars.all_categories'), url(:categories, :list)
+            =link_to t('seminars.all_categories'), url(:categories, :list), :class => "logoblue"
       .item
         .content
-          .name.align-center
+          .name.align-center.logoblue
             Suche
           .description
             %i.ui.center.aligned.search.icon.massive
