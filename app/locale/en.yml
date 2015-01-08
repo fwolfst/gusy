@@ -27,6 +27,7 @@ en:
     calendar: Seminar Calendar
     calendar2: Seminar Calender
     categories: Topics
+    current: current
     past_categories: Topics of past years
     current_categories: Current Topics
     description: Description

@@ -88,3 +88,6 @@ de:
     overview: "Sieben Linden: Aktuelle Seminare"
   categories:
     list_heading: Rubriken-Übersicht der Seminare in Sieben Linden
+  menu:
+    current: aktuell
+    all: alle
