@@ -5,6 +5,10 @@ module Gusy
       def this_year
         DateTime.now.year
       end
+      # Next year
+      def next_year
+        DateTime.now.year + 1
+      end
       # Beginning of this till end of this year
       def this_year_span
         today = Date.today
