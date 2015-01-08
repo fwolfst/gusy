@@ -1,0 +1,25 @@
+#head
+  #head_bg
+    %img(src="/images/7l_header.png.jpeg" width="100%")
+  #head_logo
+    %img(src="/images/7l_logo_red.png" style="width:30%")
+  #corner_menu
+    -#(style="position:absolute;top:2em;right:25em;float:right;")
+    %form.item(action="/seminar/search" method="GET" style="padding:0px;margin:0px")
+      zurück zu
+      %a.logored(href="http://siebenlinden.de" style="margin-right:10px;")
+        siebenlinden.de
+      - I18n.available_locales.each do |locale|
+        - if I18n.locale == locale.to_sym
+          %b
+            %a.item.blank.bgfit(style="background-image:url('/images/#{locale}.png')" href="/#{locale}/#{request.path_info}")=locale
+        - else
+          %a.item.blank.bgfit(style="background-image:url('/images/#{locale}.png')" href="/#{locale}/#{request.path_info}")=locale
+      .ui.icon.input.item
+        %input{:placeholder => I18n.t('search'), :name =>"search_term", :style => "margin-left:5px;padding:2px;"}
+          %i.search.link.icon(style="top:-4px;")
+
+  -#.text(style="position:absolute;top:1em; color:red;")
+  -#  Sieben Linden Bla
+-#  .head_menu
+-#    de | en  zurueck zu siebenlinden.de suche
