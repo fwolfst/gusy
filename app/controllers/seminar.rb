@@ -6,7 +6,7 @@ Gusy::App.controllers :seminar do
 
   get :index do
     @title = t('headings.index')
-    @categories = Category.all
+    @categories = Category.in_this_year_or_later
     render 'index'
   end
 

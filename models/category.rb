@@ -12,7 +12,10 @@ class Category < Sequel::Model
       where{seminars_dataset.date_from >= DateTime.today}
     end
     def future_seminars
-      seminars.where{date_from >= DateTime.today}
+      seminars.where{date_from >= Date.today}
+    end
+    def in_this_year_or_later
+      where(:seminars =>  Seminar.where{date_from >= Date.today}).all
     end
   end
 
