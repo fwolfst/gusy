@@ -98,7 +98,7 @@ Gusy::App.controllers :seminar do
     render 'registration'
   end
 
-  get /(.*)/ do
+  get /(.*)/, :priority => :low do
     seminar_id_uuid = params[:captures].first.split("/").last
     @seminar = seminar(seminar_id_uuid) || halt(404, "Seminar not found")
     @title = "Sieben Linden: Seminar #{@seminar.name}"
