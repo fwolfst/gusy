@@ -21,6 +21,10 @@ class Category < Sequel::Model
     seminars_dataset.where{date_from >= DateTime.now}.all
   end
 
+  def current_year_and_later_seminars
+    seminars_dataset.where{date_from >= Date.civil(Date.today.year, 1, 1)}.all
+  end
+
   # Retrieves Seminars from the current year.
   def current_year_seminars
     seminars_dataset.where{date_from.year >= DateTime.now.year}.all

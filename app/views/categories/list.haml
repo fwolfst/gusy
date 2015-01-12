@@ -11,7 +11,7 @@
     %li
       =category_link category
       =category.description
-      .ui.label=category.seminars.length
+      .ui.label=category.current_year_and_later_seminars.length
 
 -# Delete this section in future.
 - old_topics = @categories.select{|c| c.last_seminar && c.last_seminar.date_from <= begin_year}

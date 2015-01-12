@@ -26,6 +26,9 @@ class Seminar < Sequel::Model
 
   # Scoped by time.
   dataset_module do
+    def in_this_year_or_later
+      where{date_from >= Date.civil(Date.today.year, 1, 1)}
+    end
     def in_this_year
       year_begin, year_end = @@date_helper.this_year_span()
       where{date_from >= year_begin && date_from <= year_end}
