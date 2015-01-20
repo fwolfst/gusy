@@ -24,7 +24,14 @@ module Gusy
     set :protection, :except => :frame_options
 
     # Accomodation options.
-    set :rooms, ['Eigenes Zelt', 'Mehrbettzimmer', 'Einzelzimmer', 'Doppelzimmer', '2-Bett-Zimmer', 'Hütte', 'Kubus', 'Bauwagen', 'Eigenes Wohnmobil/-wagen', 'Privat / Selbstorganisiert']
+    set :rooms, [
+                 '4-Bett-Zimmer',
+                 '2-Bett-Zimmer',
+                 'Einzelzimmer',
+                 'Hütte',
+                 'Eigenes Zelt',
+                 'Eigenes Wohnmobil/-wagen',
+                 'Privat / Selbstorganisiert']
 
     ##
     # Caching support.
