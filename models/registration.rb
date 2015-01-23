@@ -1,5 +1,6 @@
 class Registration < Sequel::Model
   plugin :validation_helpers
+  plugin :timestamps, :force => true, :update_on_create => true, :create => :timestamp, :update => :timestamp
 
   def validate
     validates_presence :firstname
