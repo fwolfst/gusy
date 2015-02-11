@@ -89,10 +89,16 @@
             =t('seminars.other_from_category')
             =category.name
           %ul.ui.list
-            - category.seminars.sort_by(&:date_from).each do |related_seminar|
+            - category.future_seminars.sort_by(&:date_from).each do |related_seminar|
               %li
                 -# How about partial, :object => 
                 =partial('seminar/seminar_link', :locals => {:seminar => related_seminar})
+            %hr
+            - category.past_seminars.sort_by(&:date_from).reverse.each do |related_seminar|
+              %li
+                -# How about partial, :object => 
+                =partial('seminar/seminar_link', :locals => {:seminar => related_seminar})
+
       
       - @seminar.referees.each do |referee|
         - if referee.seminars.size > 2
@@ -100,6 +106,6 @@
             =t('seminars.other_from_referee')
             =referee.full_name
           %ul.ui.list
-            - (referee.seminars - [@seminar]).sort_by(&:date_from).each do |seminar|
+            - (referee.seminars - [@seminar]).sort_by(&:date_from).reverse.each do |seminar|
               %li
                 =partial('seminar/seminar_link', :locals => {:seminar => seminar})
