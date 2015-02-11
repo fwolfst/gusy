@@ -149,6 +149,16 @@ i.plop:hover {
 .logogreen {
   color: #7ab031 !important;
 }
+.bg-logoblue {
+  background-color: #0a71b4 !important;
+  color: white !important;
+}
+.bg-logogreen {
+  background-color: #7ab031 !important;
+}
+.bg-logolightgreen {
+  background-color: #b2dc23 !important;
+}
 .logored {
   color: #e2001a !important;
 }

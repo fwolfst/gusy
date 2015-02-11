@@ -34,7 +34,7 @@
             %li=referee_link referee
             =Qualification.find(:referee => referee, :seminar => @seminar).qualification_text
 
-    %h3.blue.ui.header.attached.inverted.top.inverted.seminarinfobox=I18n.t('seminars.registration')
+    %h3.bg-logoblue.ui.header.attached.inverted.top.inverted.seminarinfobox=I18n.t('seminars.registration')
     .ui.segment.attached
       - if @seminar.date_from >= Date.today - 1
         - if @seminar.registration_needed
