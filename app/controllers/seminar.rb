@@ -70,6 +70,8 @@ Gusy::App.controllers :seminar do
     #Alternative:
     #@seminars = Seminar.grep(:description, "%#{params[:search_term]}%").all
     if !@seminars.empty?
+      @seminars_future = @seminars.select {|s| s.in_future?}
+      @seminars_past = @seminars - @seminars_future
       flash.now[:success] = "#{t('search.show_matches')}: #{params[:search_term]} (#{@seminars.length})"
     else
       flash.now[:notice] = I18n.t('search.no_matches')

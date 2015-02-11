@@ -50,4 +50,15 @@ class Seminar < Sequel::Model
            date_from <= Date.civil(year, month, -1)}
     end
   end
+
+  def in_future?
+    date_from >= (DateTime.now - 1)
+  end
+
+  def happening_now?
+  end
+
+  def over?
+  end
+
 end

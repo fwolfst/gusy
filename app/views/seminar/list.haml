@@ -1,9 +1,30 @@
 #seminar_list(style="margin:1em;")
-  - @seminars.group_by {|seminar| seminar_year_month(seminar)}.each do |time, seminars|
-    %a{:name => "#{time[1]}"}
-    %h2.logoblue.ui.dividing.header
-      =I18n.t(:"date.month_names")[time[1]]
-      =time[0]
-    #seminar.ui.items
-      - seminars.sort_by(&:date_from).each do |seminar|
-        = partial('seminar/item', :locals => {:seminar => seminar, :time => time})
+  - if @seminars_future
+    - @seminars_future.group_by {|seminar| seminar_year_month(seminar)}.each do |time, seminars|
+      %a{:name => "#{time[1]}"}
+      %h2.logoblue.ui.dividing.header
+        =I18n.t(:"date.month_names")[time[1]]
+        =time[0]
+      #seminar.ui.items
+        - seminars.sort_by(&:date_from).each do |seminar|
+          = partial('seminar/item', :locals => {:seminar => seminar, :time => time})
+  - if @seminars_past
+    %hr
+    %h2 Vergangene Seminare
+    - @seminars_past.group_by {|seminar| seminar_year_month(seminar)}.each do |time, seminars|
+      %a{:name => "#{time[1]}"}
+      %h2.logoblue.ui.dividing.header
+        =I18n.t(:"date.month_names")[time[1]]
+        =time[0]
+      #seminar.ui.items
+        - seminars.sort_by(&:date_from).each do |seminar|
+          = partial('seminar/item', :locals => {:seminar => seminar, :time => time})
+  - else
+    - @seminars.group_by {|seminar| seminar_year_month(seminar)}.each do |time, seminars|
+      %a{:name => "#{time[1]}"}
+      %h2.logoblue.ui.dividing.header
+        =I18n.t(:"date.month_names")[time[1]]
+        =time[0]
+      #seminar.ui.items
+        - seminars.sort_by(&:date_from).each do |seminar|
+          = partial('seminar/item', :locals => {:seminar => seminar, :time => time})
