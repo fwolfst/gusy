@@ -13,16 +13,16 @@ module Gusy
       end
 
       def category_url category
-        url(:categories, :show, :category => category.id)
+        if category.shorturl
+          url(:categories, :show, category.shorturl)
+        else
+          url(:categories, :show, category.id)
+        end
       end
 
       # HTML link to category (displays name)
       def category_link category
-        if category.shorturl
-          link_to category.name, url(:categories, :show, category.shorturl)
-        else
-          link_to category.name, url(:categories, :show, category.id)
-        end
+        link_to category.name, category_url(category)
       end
     end
 
