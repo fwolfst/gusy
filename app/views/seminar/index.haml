@@ -14,9 +14,8 @@
             %br
             =link_to I18n.t('calendar.current'), url(:seminar, :current), :class => "logoblue"
             %br
-            =link_to "2014", url(:seminar, :list, :year => '2014'), :class => "logoblue"
             %br
-            =link_to "2015", url(:seminar, :list, :year => '2015'), :class => "logoblue"
+            =link_to "2015 - #{t('calendar.complete')}", url(:seminar, :list, :year => '2015'), :class => "logoblue"
             -#%br
             -#=link_to "Archiv", url(:seminar, :all)
 
@@ -32,21 +31,21 @@
             %br
             %br
             - @categories.sample(3).each do |category|
-              .ui.label=category_link(category)
+              =link_to(category.name, category_url(category), :class => "logoblue")
               %br
             %br
             =link_to t('seminars.all_categories'), url(:categories, :list), :class => "logoblue"
       .item
         .content
           .name.align-center.logoblue
-            Suche
+            = t('search.search')
           .description
             %i.ui.center.aligned.search.icon.massive
             -#(style='width:100%;')
             %br
             %br
-            Seminar-Beschreibungen durchsuchen
-            %br
+            %center
+              =t('search.search_seminars')
             %br
             %form.align-center(action="/seminar/search" method="GET")
               .ui.icon.input.item

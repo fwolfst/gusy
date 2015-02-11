@@ -52,9 +52,11 @@ de:
     search: Suche
     no_matches: Sorry nichts gefunden
     show_matches: Zeige Such-Ergebnisse
+    search_seminars: Seminare suchen
   calendar:
     look: Schau dir unser Angebot an
     current: Aktueller Kalender
+    complete: gesamt
   for_example: Zum Beispiel ...
   registration:
     cancellation_conditions: Rücktrittsbedingungen
@@ -70,6 +72,7 @@ de:
     real_error: Es gab einen echten Fehler, bitte kontaktiere uns und lass es uns wissen!
     confirm_mail_subject: Anmeldung zum Seminar
     host_mail_subject: Anmeldung für 
+    external_host_mail_subject: "seminare.siebenlinden.de: Anmeldung für"
   models:
     registration:
       attributes:

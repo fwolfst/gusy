@@ -53,9 +53,11 @@ en:
     search: Search
     no_matches: Sorry no hits
     show_matches: Showing search hits
+    search_seminars: Search Seminars
   calendar:
     current: Current Calendar
     look: Look at our schedule
+    complete: all
   for_example: for Example ...
   registration:
     for_seminar: for Seminar
@@ -71,6 +73,7 @@ en:
     real_error: There was a serious error, please contact us and let us know!
     confirm_mail_subject: Your registration for the seminar
     host_mail_subject: Registration for
+    external_host_mail_subject: "seminars.siebenlinden.de: Registration for"
   models:
     registration:
       attributes:
