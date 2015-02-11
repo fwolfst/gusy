@@ -1,13 +1,16 @@
+- content_for :meta_tags do
+  %meta(value="2")
+
 #entry.ui.one.column.page.grid(style="position:50%")
   .column
     .ui.items
-      .item
+      .item.entry
         .content.align-center
           .name.logored
             =I18n.t('seminars.calendar')
           .description
             %a.blank(href="#{url :seminar, :current}")
-              %i.ui.calendar.icon.massive.center.aligned(style='width:100%;')
+              %img(src="/images/calendar.jpg")
             %br
             =I18n.t('calendar.look')
             %br
@@ -16,16 +19,14 @@
             %br
             %br
             =link_to "2015 - #{t('calendar.complete')}", url(:seminar, :list, :year => '2015'), :class => "logoblue"
-            -#%br
-            -#=link_to "Archiv", url(:seminar, :all)
 
-      .item
+      .item.entry
         .content.align-center
           .name.logogreen
             =I18n.t('seminars.categories')
           .description
             %a.blank(href="#{url :categories, :list}")
-              %i.ui.center.aligned.browser.icon.massive(style='width:100%;')
+              %img(src="/images/categories.jpg")
             %br
             =I18n.t('for_example')
             %br
@@ -35,15 +36,13 @@
               %br
             %br
             =link_to t('seminars.all_categories'), url(:categories, :list), :class => "logoblue"
-      .item
+      .item.entry
         .content
           .name.align-center.logoblue
             = t('search.search')
           .description
-            %i.ui.center.aligned.search.icon.massive
-            -#(style='width:100%;')
-            %br
-            %br
+            %center
+              %img(src="/images/search.jpg")
             %center
               =t('search.search_seminars')
             %br
