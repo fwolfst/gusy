@@ -169,3 +169,6 @@ i.plop:hover {
   margin-left: -45px;
   margin-right: 70px;
 }
+#entry .description {
+  margin-top: 1em;
+}
