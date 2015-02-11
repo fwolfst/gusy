@@ -1,8 +1,8 @@
-%h2
-  = I18n.t('seminars.seminars_of_category')
-  = @category.name
-
 - if @category.description && !@category.description.empty?
+  %h2
+    = I18n.t('seminars.seminars_of_category')
+    = @category.name
+
   .ui.segment
     .ui.grid
       .ui.row
@@ -19,7 +19,31 @@
   .ui.row
     .column
     .ui.segment.fourteen.wide.column
-      - @category.seminars.sort_by(&:date_from).group_by{|seminar| seminar_year_month(seminar)}.each do |time, seminars|
+      %h2.dividing.header
+        = I18n.t('seminars.seminars_of_category')
+        = @category.name
+      - @category.future_seminars.sort_by(&:date_from).group_by{|seminar| seminar_year_month(seminar)}.each do |time, seminars|
+        %h5.ui.dividing.header
+          =I18n.t(:"date.month_names")[time[1]]
+          =time[0]
+        .ui.divided.list
+          - seminars.each do |seminar|
+            .item
+              .ui.label
+                = from_to_format seminar
+              .content
+                %a.header{:href=>seminar_url(seminar)}=seminar.name
+                .description
+                  -if !seminar.referees.empty?
+                    (#{I18n.t('with')} #{seminar.referees.map(&:full_name).join(' ' + I18n.t('and') + ' ')})
+    .column
+
+  .ui.row
+    .column
+    .ui.segment.fourteen.wide.column
+      %h2.dividing.header
+        = I18n.t('seminars.past_seminars_of_category')
+      - @category.past_seminars.sort_by(&:date_from).reverse.group_by{|seminar| seminar_year_month(seminar)}.each do |time, seminars|
         %h5.ui.dividing.header
           =I18n.t(:"date.month_names")[time[1]]
           =time[0]
