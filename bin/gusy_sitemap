@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+
+require 'sitemap_generator'
+
+# Require the gusy models
+require 'gusy'
+require 'padrino'
+require 'sequel'
+require 'sqlite3'
+require 'json'
+
+Sequel::Model.plugin(:schema)
+Sequel::Model.raise_on_save_failure = false # Do not throw exceptions on failure
+db_path = "sqlite:///" + File.expand_path('../../../gusy/db/gusy_production.db', __FILE__)
+puts db_path
+Sequel::Model.db = Sequel.connect(db_path, :loggers => [logger])
+
+require 'seminar'
+require 'category'
+require 'referee'
+
+require 'app'
+
+SitemapGenerator::Sitemap.default_host = "http://seminare.siebenlinden.de"
+
+seminars = Seminar.all
+categories = Category.all
+referees = Referee.all
+
+def add_with_alternatives path
+  add "/#{path}", :changefreq => 'weekly', :alternates => [{
+    :href => "#{SitemapGenerator::Sitemap.default_host}/en/#{path}",
+    :lang => 'en'},
+    {
+    :href => "#{SitemapGenerator::Sitemap.default_host}/de/#{path}",
+    :lang => 'de'}]
+end
+
+SitemapGenerator::Sitemap.create do
+  add_with_alternatives ''
+  add_with_alternatives 'impressum'
+  add_with_alternatives 'seminar/'
+  add_with_alternatives 'seminar/current'
+  add_with_alternatives 'seminar/list/2015'
+  seminars.map(&:shorturl).each do |shortlink|
+    add_with_alternatives "seminar/show/#{shortlink}"
+  end
+  add_with_alternatives 'categories/list'
+  categories.map(&:shorturl).each do |shortlink|
+    add_with_alternatives "categories/show/#{shortlink}"
+  end
+  add_with_alternatives 'seminar/referees/list'
+  referees.map(&:id).each do |id|
+    add_with_alternatives "seminar/referee/#{id}"
+  end
+end
