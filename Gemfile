@@ -36,3 +36,5 @@ gem 'padrino', '0.12.3'
 
 # For legacy-CouchDB interaction
 gem 'rest_client'
+
+gem 'sitemap_generator'
