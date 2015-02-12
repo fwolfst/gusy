@@ -1,8 +1,8 @@
 #head
   #head_bg
-    %img(src="/images/7l_header.png.jpeg" width="100%" style="opacity:0;")
+    %img(src="/images/7l_header.png.jpeg" width="100%" style="opacity:0;" alt="Sieben Linden Panorama")
   #head_logo
-    %img(src="/images/7l_logo_red.png" style="width:30%")
+    %img(src="/images/7l_logo_red.png" style="width:30%" alt="Sieben Linden Logo")
   #corner_menu
     -#(style="position:absolute;top:2em;right:25em;float:right;")
     %form.item(action="/seminar/search" method="GET" style="padding:0px;margin:0px")
@@ -10,10 +10,10 @@
         - I18n.available_locales.each do |locale|
           - if I18n.locale == locale.to_sym
             %a.blank.bgfit(href="/#{locale}/#{request.path_info}")
-              %img(src="/images/#{locale}.png" height=33 style="position:relative;top:9px;")
+              %img(src="/images/#{locale}.png" height=33 style="position:relative;top:9px;" alt="#{locale} flag")
           - else
             %a.blank.bgfit(href="/#{locale}/#{request.path_info}")
-              %img(src="/images/#{locale}.png" height=22 style="position:relative;top:4px;")
+              %img(src="/images/#{locale}.png" height=22 style="position:relative;top:4px;" alt="#{locale} flag")
 
         .ui.icon.input.item
           %input{:placeholder => I18n.t('search'), :name =>"search_term", :style => "margin-left:5px;padding:2px;"}
