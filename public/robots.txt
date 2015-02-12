@@ -1,0 +1,3 @@
+Sitemap: http://seminare.siebenlinden.de/sitemap.xml.gz
+User-agent: *
+Disallow: /public/
