@@ -29,16 +29,16 @@ body {
   background: url(/images/7l_header.green.jpeg);
   background-repeat: none;
   background-size: cover;
-  -webkit-box-shadow: inset 298px 0px 59px -33px rgba(255,255,255,0.9);
-  -moz-box-shadow: inset 298px 0px 59px -33px rgba(255,255,255,0.9);
-  box-shadow: inset 298px 0px 59px -33px rgba(255,255,255,0.9);
+  -webkit-box-shadow: inset 498px 0px 259px -33px rgba(255,255,255,0.9);
+  -moz-box-shadow: inset 498px 0px 259px -33px rgba(255,255,255,0.9);
+  box-shadow: inset 498px 0px 259px -33px rgba(255,255,255,0.9);
 }
 
 #head_logo {
   position: absolute;
   width: 100%;
-  left:4em;
-  top: 5%;
+  left:3em;
+  top: 2%;
 }
 
 #corner_menu {
