@@ -1,17 +1,18 @@
 .item.attached.seminaritem
-  .content.seminardate
-    - if !seminar.one_day?
-      = I18n.l(seminar.date_from, :format => :monthsday)
-      - if seminar.spans_month?
-        = I18n.t(:"date.month_names")[seminar.date_from.month][0..2] rescue ""
-      #{"-"}
-    = I18n.l(seminar.date_to, :format => :monthsday)
-    = I18n.t(:"date.month_names")[seminar.date_to.month][0..2] rescue ""
-
   - if false && !seminar.thumbnail_url.nil? && !seminar.thumbnail_url.empty?
     .image(style="height:220px;background-color:white;")
       %img.rounded.ui.medium.image(src="/images/image#{rand(5) + 1}.jpg")
   .content.main
+    .ui.ribbon.label.bg-logolightgreen.large.seminardate
+      %b
+        - if !seminar.one_day?
+          = I18n.l(seminar.date_from, :format => :monthsday)
+          - if seminar.spans_month?
+            = I18n.t(:"date.month_names")[seminar.date_from.month][0..2] rescue ""
+          #{"-"}
+        = I18n.l(seminar.date_to, :format => :monthsday)
+        = I18n.t(:"date.month_names")[seminar.date_to.month][0..2] rescue ""
+
     .name
       %a.logored.blank(href="#{seminar_url seminar}")
         = seminar.name
