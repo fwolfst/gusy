@@ -15,7 +15,10 @@
 
     .name
       %a.logored.blank(href="#{seminar_url seminar}")
-        = seminar.name
+        = seminar.name.split("- ",2)[0]
+        %small
+          %small
+            = seminar.name.split("- ",2)[1]
     -#%br
     -#- seminar.categories.each do |category|
     -#  .ui.label.green
