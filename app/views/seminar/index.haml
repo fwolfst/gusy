@@ -55,12 +55,28 @@
               %input.ui.blue.submit.button(type="submit" value="#{t('search.search')}")
   .fifteen.wide.column(style="margin-top:-32px;")
     .ui.segment
-      %h1.ui.header.dividing
-        %small
-          Liebe_r Besucher_in,
-      %p
-        Willkommen auf unserer neuen Seminar-Info-Homepage.
-        Sie ist noch im Wandel und vielleicht hier und da noch nicht so rund geschliffen wie die schönen Kiesel, die du am Strand sammelst.
-      %p
-        Bitte zögere nicht, uns im Zweifelsfall zu kontaktieren oder uns Feedback zu geben.  Wir haben noch viele Ideen, was wir umsetzen könnten und hoffen für den Ausbau noch entsprechende Mittel aquirieren zu können.  Die Seite wurde ausschließlich mit Freier Software erstellt.
-    
+      - if I18n.locale == :de
+        %h1.ui.header.dividing
+          %small
+            Liebe_r Besucher_in,
+        %p
+          Willkommen auf unserer neuen Seminar-Info-Homepage.
+          Sie ist noch im Wandel und vielleicht hier und da noch nicht so rund geschliffen wie die schönen Kiesel, die du am Strand sammelst.
+        %p
+          Bitte zögere nicht, uns im Zweifelsfall zu kontaktieren oder uns Feedback zu geben.  Wir haben noch viele Ideen, was wir umsetzen könnten und hoffen für den Ausbau noch entsprechende Mittel aquirieren zu können.  Die Seite wurde ausschließlich mit Freier Software erstellt.
+      - else
+        %h1.ui.header.dividing
+          %small
+            Dear visitor
+        %p
+          Welcome at our new seminar-info page.
+          Work is in progress and you might encounter issues here and there.
+        %p
+          Please note that most content on this page is in German language only.
+        Most likely you are most interested in our
+        %a(href="/categories/show/international")
+          International courses
+        = "."
+        %p
+          Please do not hesitate to contact us or give us feedback. This page has been constructed using Free Software only.
+
