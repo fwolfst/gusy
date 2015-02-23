@@ -1,5 +1,28 @@
-%h1=t('seminars.referees')
+.ui.two.column.page.grid
+  .column
+    %h1.logoblue=t('seminars.referees')
+    %hr
+    %ul.ui.list
+      - @referees.all[0..(@referees.count/2)].group_by{|r| r.last_name[0]}.each do |initial, referees|
+        %h2=initial
+        %li
+          - referees.each do |referee|
+            = link_to url(:seminar, :referee, referee.id) do
+              = referee.first_name
+              %strong
+                = referee.last_name
+            &nbsp;
+            &nbsp;
 
-%ul.ui.list
-  - @referees.each do |referee|
-    %li=referee_link referee
+  .column
+    %ul.ui.list
+      - @referees.all[(@referees.count/2 + 1)..-1].group_by{|r| r.last_name[0]}.each do |initial, referees|
+        %h2=initial
+        %li
+          - referees.each do |referee|
+            = link_to url(:seminar, :referee, referee.id) do
+              = referee.first_name
+              %strong
+                = referee.last_name
+            &nbsp;
+            &nbsp;
