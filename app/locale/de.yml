@@ -15,16 +15,17 @@ de:
   to: bis
   dates: Datum
   more: mehr
-  category: Rubrik
   with: mit
   and: und
+  search: Suche
+  category: Rubrik
   language: Sprache
   seminars:
     all: Alle Seminare
     all_categories: Alle Rubriken
+    archive: Archiv
     calendar: Seminarkalender
     calendar2: Seminar Kalender
-    archive: Archiv
     categories: Rubriken
     past_categories: Rubriken vergangener Jahre
     current_categories: Aktuelle Rubriken
