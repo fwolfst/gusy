@@ -1,8 +1,8 @@
 - content_for :meta_tags do
   %meta(value="2")
 
-#entry.ui.one.column.page.grid(style="position:50%")
-  .column
+#entry.ui.page.doubling.grid(style="position:50%")
+  .column.sixteen.wide
     .ui.items
       .item.entry
         .content.align-center
@@ -53,7 +53,7 @@
               %br
               %br
               %input.ui.blue.submit.button(type="submit" value="#{t('search.search')}")
-  .column.fourteen.column.wide(style="margin-top:-32px;")
+  .fifteen.wide.column(style="margin-top:-32px;")
     .ui.segment
       %h1.ui.header.dividing
         %small
