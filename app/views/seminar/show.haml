@@ -23,7 +23,7 @@
           - @seminar.categories.each do |category|
             = link_to category.name, category_url(category), :class => "logoblue"
 
-    %h4.ui.header.attached.top.inverted.seminarinfobox=I18n.t('seminars.description')
+    %h4.ui.header.dividing.attached.top.inverted.seminarinfobox=I18n.t('seminars.description')
     .ui.segment.attached
       != @seminar.description
 
@@ -85,7 +85,7 @@
     .ui.segment.attached
       - @seminar.categories.each do |category|
         - if !category.seminars.empty?
-          %h4
+          %h4.logoblue
             =t('seminars.other_from_category')
             =category.name
           %ul.ui.list
@@ -102,7 +102,7 @@
       
       - @seminar.referees.each do |referee|
         - if referee.seminars.size > 2
-          %h4
+          %h4.logoblue
             =t('seminars.other_from_referee')
             =referee.full_name
           %ul.ui.list
