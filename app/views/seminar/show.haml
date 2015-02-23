@@ -28,7 +28,7 @@
       != @seminar.description
 
       -if @seminar.referees && !@seminar.referees.empty?
-        %h4.ui.header=t('seminars.referees')
+        %h4.ui.header.logoblue=t('seminars.referees')
         %ul.ui.list
           - @seminar.referees.each do |referee|
             %li=referee_link referee

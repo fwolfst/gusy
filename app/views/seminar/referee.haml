@@ -4,18 +4,18 @@
     .column
     .column.nine.wide.column
       %center
-        %h2=@referee.full_name
+        %h2.logoblue=@referee.full_name
     .column
   .ui.row
     .column
     .column.nine.wide.column
       - if @referee.description
-        %h4.ui.header.top.attached
+        %h4.ui.header.top.attached.logoblue
           =t('referee.description')
         .ui.segment.attached
           =@referee.description
       - if @referee.homepage
-        %h4.ui.header.top.attached
+        %h4.ui.header.top.attached.logoblue
           =t('referee.homepage')
         .ui.segment.attached
           =@referee.homepage
@@ -28,11 +28,11 @@
     .column
     .column.thirteen.wide.column
       .ui.segment(style="opacity:0.8")
-        %h3=I18n.t('referee.for_following_seminars')
+        %h3.logoblue=I18n.t('referee.for_following_seminars')
         - future_seminars = @referee.seminars.select{|s| s.date_from >= Date.today}
         - past_seminars = @referee.seminars.select{|s| s.date_from <= Date.today}
         - if !future_seminars.empty?
-          %h4
+          %h4.logoblue
             =t('referee.future_seminars')
           %ul.ui.list
             - future_seminars.each do |seminar|
@@ -44,7 +44,7 @@
                 - if seminar.referees.length >= 2
                   (#{I18n.t('with')} #{(seminar.referees - [@referee]).map(&:full_name).join(" " + I18n.t('and') +" ")})
         - if !past_seminars.empty?
-          %h4
+          %h4.logoblue
             =t('referee.past_seminars')
           %ul.ui.list
             - past_seminars.each do |seminar|

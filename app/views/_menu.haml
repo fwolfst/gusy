@@ -5,6 +5,30 @@
     =link_to I18n.t('seminars.categories'), url(:categories, :index), :class=>"item #{@menu.class_categories}"
     =link_to I18n.t('seminars.referees'), url(:seminar, :referees), :class=>"item #{@menu.class_referees}"
     .right.menu
+      .item
+        .ui.dropdown
+          .text
+            < wichtige Informationen ... >
+            .i.dropdown.icon
+          .menu
+            %a.item(href="http://siebenlinden.de/index.php?id=110" target="_new")
+              Gästebetrieb
+            %a.item(href="http://siebenlinden.de/index.php?id=62" target="_new")
+              Bildung für Nachhaltigkeit
+            %a.item(href="http://siebenlinden.de/index.php?id=88" target="_new")
+              Wissenswertes zur Anmeldung
+            %a.item(href="http://siebenlinden.de/index.php?id=85" target="_new")
+              Übernachten
+            %a.item(href="http://siebenlinden.de/index.php?id=22" target="_new")
+              Anreise
+            %a.item(href="http://siebenlinden.de/index.php?id=142" target="_new")
+              Barrierefreiheit
+            %a.item(href="http://siebenlinden.de/index.php?id=87" target="_new")
+              Bildungsprämie
+      :javascript
+        $('.ui.dropdown')
+          .dropdown()
+          ;
       %a.item.logored(href="http://siebenlinden.de")
         zurück zu siebenlinden.de
         
