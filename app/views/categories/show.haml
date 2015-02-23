@@ -1,5 +1,5 @@
 - if @category.description && !@category.description.empty?
-  %h2
+  %h2.logoblue
     = I18n.t('seminars.seminars_of_category')
     = @category.name
 
@@ -19,7 +19,7 @@
   .ui.row
     .column
     .ui.segment.fourteen.wide.column
-      %h2.dividing.header
+      %h2.dividing.header.logoblue
         = I18n.t('seminars.seminars_of_category')
         = @category.name
       - @category.future_seminars.sort_by(&:date_from).group_by{|seminar| seminar_year_month(seminar)}.each do |time, seminars|
@@ -41,7 +41,7 @@
   .ui.row
     .column
     .ui.segment.fourteen.wide.column
-      %h2.dividing.header
+      %h2.dividing.header.logoblue
         = I18n.t('seminars.past_seminars_of_category')
       - @category.past_seminars.sort_by(&:date_from).reverse.group_by{|seminar| seminar_year_month(seminar)}.each do |time, seminars|
         %h5.ui.dividing.header

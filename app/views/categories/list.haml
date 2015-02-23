@@ -1,27 +1,28 @@
-#category_list(style="float:right;position:relative;right:0px;top:0px")
-  %a(href="")
-    %i.plop.grid.layout.icon
-  %a(href="")
-    %i.plop.list.layout.icon.active
-%h2.header.ui
-  =t('seminars.current_categories')
-%ul
-  - today = Date.today
-  - two_years_ago = Date.civil(today.year - 0, today.month - 3, today.day)
-  - @categories.sort_by(&:name).select{|c| c.last_seminar && c.last_seminar.date_from >= two_years_ago}.each do |category|
-    %li
-      =category_link category
-      =category.description
-      .ui.label=category.seminars.length
+.ui.one.column.page.grid
+  .column
+    #category_list(style="float:right;position:relative;right:0px;top:0px")
+      %a(href="")
+        %i.plop.grid.layout.icon
+      %a(href="")
+        %i.plop.list.layout.icon.active
+    %h2.header.ui.logoblue
+      =t('seminars.current_categories')
+    %ul
+      - today = Date.today
+      - two_years_ago = Date.civil(today.year - 0, today.month - 3, today.day)
+      - @categories.sort_by(&:name).select{|c| c.last_seminar && c.last_seminar.date_from >= two_years_ago}.each do |category|
+        %li
+          =category_link category
+          =category.description
+          .ui.label=category.seminars.length
 
-- old_topics = @categories.select{|c| c.last_seminar && c.last_seminar.date_from <= two_years_ago}
-- if !old_topics.empty?
-  %h2.header.ui
-    =t('seminars.past_categories')
-  %ul
-    - old_topics.each do |category|
-      %li
-        =category_link category
-        =category.description
-        .ui.label=category.seminars.length
-  
+    - old_topics = @categories.select{|c| c.last_seminar && c.last_seminar.date_from <= two_years_ago}
+    - if !old_topics.empty?
+      %h2.header.ui.logoblue
+        =t('seminars.past_categories')
+      %ul
+        - old_topics.each do |category|
+          %li
+            =category_link category
+            =category.description
+            .ui.label=category.seminars.length
