@@ -11,6 +11,7 @@ body {
   background-color: #CBE061;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
 
 #head {
@@ -24,28 +25,33 @@ body {
 }
 
 #head_bg {
-  width: 100%;
+  width:100%;
   float:left;
   position:relative;
-  background: url(/images/7l_header.green.jpeg);
+  background: url(/images/siebenlinden_head_logo.jpg);
   background-repeat: none;
   background-size: cover;
-  -webkit-box-shadow: inset 498px 0px 259px -33px rgba(255,255,255,0.9);
-  -moz-box-shadow: inset 498px 0px 259px -33px rgba(255,255,255,0.9);
-  box-shadow: inset 498px 0px 259px -33px rgba(255,255,255,0.9);
+//  -webkit-box-shadow: inset 498px 0px 259px -33px rgba(255,255,255,0.9);
+//  -moz-box-shadow: inset 498px 0px 259px -33px rgba(255,255,255,0.9);
+//  box-shadow: inset 498px 0px 259px -33px rgba(255,255,255,0.9);
 }
 
 #head_logo {
   position: absolute;
   width: 100%;
-  left:3em;
+  left: 3em;
   top: 2%;
 }
 
+#head_bg img {
+  width: 100%;
+}
+
 #decade {
+  float: right;
   position: absolute;
-  right: 5%;
-  top: 20%;
+  right: 1%;
+  top: 8%;
   height: 70%;
 }
 
