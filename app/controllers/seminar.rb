@@ -100,13 +100,6 @@ Gusy::App.controllers :seminar do
     render 'registration'
   end
 
-  get /(.*)/ do
-    seminar_id_uuid = params[:captures].first.split("/").last
-    @seminar = seminar(seminar_id_uuid) || halt(404, "Seminar not found")
-    @title = "Sieben Linden: Seminar #{@seminar.name}"
-    render 'show'
-  end
-
   post :register do
     logger.info params
     @seminar = seminar(params['seminar_id']) || halt(404, t("seminars.not_found"))
@@ -133,6 +126,14 @@ Gusy::App.controllers :seminar do
       logger.warn("Saving registration failed: #{@registration.errors}")
       flash.now[:failure] = t('registration.save_failed')
     end
+    render 'show'
+  end
+
+  # Kind of catch-all
+  get /(.*)/, :priority => :low do
+    seminar_id_uuid = params[:captures].first.split("/").last
+    @seminar = seminar(seminar_id_uuid) || halt(404, "Seminar not found")
+    @title = "Sieben Linden: Seminar #{@seminar.name}"
     render 'show'
   end
 end
