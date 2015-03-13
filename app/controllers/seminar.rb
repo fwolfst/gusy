@@ -88,7 +88,7 @@ Gusy::App.controllers :seminar do
   end
 
   get :referees do
-    @title = "Sieben Linden Seminare: Referentenübersicht"
+    @title = "Sieben Linden Seminare: Referent_Innenübersicht"
     @referees = Referee.order(:last_name)
     @menu = Gusy::GusyMenu.referee
     render 'referees'
