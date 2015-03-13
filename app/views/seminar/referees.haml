@@ -3,7 +3,7 @@
     %h1.logoblue=t('seminars.referees')
     %hr
     %ul.ui.list
-      - @referees.all[0..(@referees.count/2)].group_by{|r| r.last_name[0]}.each do |initial, referees|
+      - @referees.all[0..(@referees.count/2)].group_by{|r| sort_letter r}.each do |initial, referees|
         %h2=initial
         %li
           - referees.each do |referee|
