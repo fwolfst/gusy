@@ -9,5 +9,6 @@ module Gusy
         end
       end
     end
+    helpers RefereeHelper
   end
 end
