@@ -47,7 +47,7 @@ class Seminar < Sequel::Model
     end
     def of_month year, month
       where{date_from >= Date.civil(year, month, 1)}.and{
-           date_from <= Date.civil(year, month, -1)}
+           date_from <= DateTime.civil(year, month, -1) + 1}
     end
   end
 
