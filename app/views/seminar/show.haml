@@ -25,7 +25,7 @@
 
     %h4.ui.header.dividing.attached.top.inverted.seminarinfobox=I18n.t('seminars.description')
     .ui.segment.attached
-      != @seminar.description
+      != @seminar.description.gsub('type="mce-mce-text/javascript"','').gsub('type="mce-text/javascript"','').gsub('data-share="true"><br></div>','data-share="true"></div>')
 
       -if @seminar.referees && !@seminar.referees.empty?
         %h4.ui.header.logoblue=t('seminars.referees')
