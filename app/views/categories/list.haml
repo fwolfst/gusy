@@ -9,7 +9,7 @@
       =t('seminars.current_categories')
     %ul
       - today = Date.today
-      - three_month_ago = Date.civil(today.year - 0, (today.month - 3)%12 + 1, today.day)
+      - three_month_ago = (today - 90)
       - @categories.sort_by(&:name).select{|c| c.last_seminar && c.last_seminar.date_from >= three_month_ago}.each do |category|
         %li
           =category_link category
