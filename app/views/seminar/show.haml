@@ -1,5 +1,6 @@
--#- content_for :meta_tags
--#  %meta bla
+- content_for :canonical_url do
+  - if @seminar.shorturl
+    %link(rel="canonical" href="#{absolute_url(:seminar, :show, @seminar.shorturl)}")
 
 .ui.one.column.page.grid
   .column
