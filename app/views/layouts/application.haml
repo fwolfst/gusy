@@ -4,9 +4,12 @@
     %title=@title || "Gusy - Seminare und Workshops in Sieben Linden"
     %meta(name="viewport" content="width=device-width, initial-scale=1")
     %link(rel="stylesheet" type="text/css" class="ui" href="/stylesheets/semantic.min.css")
-    %link(rel="stylesheet" type="text/css" class="ui" href="/stylesheets/gusy.css")
+    - if content_for? :canonical_url
+      = yield_content :canonical_url
     %script(src="/javascripts/jquery-2.1.1.min.js")
     %script(src="/javascripts/semantic.min.js")
+    %link(rel="icon" href="/favicon.ico" type="image/x-icon")
+    %link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
   %body.ui
     #no-foot
       #topheader
