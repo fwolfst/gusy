@@ -45,10 +45,10 @@
       - else
         =t('seminars.is_in_past')
 
-    - if @seminar.date_from >= Date.today - 1
-      %h3.bg-logoblue.ui.header.attached.inverted.top.inverted.seminarinfobox=I18n.t('seminars.ask_question')
-      .ui.segment.attached
-        = render_partial 'seminar/ask_question'
+    -#- if @seminar.date_from >= Date.today - 1
+    -#  %h3.bg-logoblue.ui.header.attached.inverted.top.inverted.seminarinfobox=I18n.t('seminars.ask_question')
+    -#  .ui.segment.attached
+    -#    = render_partial 'seminar/ask_question'
 
   #side_column.column
     - if @seminar.thumbnail_url && !@seminar.thumbnail_url.empty?
