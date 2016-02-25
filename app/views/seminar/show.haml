@@ -51,9 +51,8 @@
     -#    = render_partial 'seminar/ask_question'
 
   #side_column.column
-    - if @seminar.thumbnail_url && !@seminar.thumbnail_url.empty?
-      .ui.segment
-        %img.rounded.ui.medium.image(src="http://siebenlinden.de/fileadmin/img/seminar/#{@seminar.thumbnail_url}")
+    .ui.segment
+      %img.rounded.ui.medium.image(src="http://siebenlinden.de/fileadmin/img/seminar/#{@seminar.thumbnail_file}")
     %h4.ui.header.dividing.attached.top.inverted.seminarinfobox=I18n.t('seminars.further_infos')
     .ui.segment.attached
       - web_notice_text = strip_tags(@seminar.web_notice)

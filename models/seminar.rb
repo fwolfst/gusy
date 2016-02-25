@@ -61,4 +61,11 @@ class Seminar < Sequel::Model
   def over?
   end
 
+  def thumbnail_file
+    if self.thumbnail_url && ! self.thumbnail_url.empty?
+      self.thumbnail_url
+    else
+      "rainbow.jpg"
+    end
+  end
 end

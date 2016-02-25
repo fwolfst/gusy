@@ -1,7 +1,6 @@
 .item.attached.seminaritem
-  - if false && !seminar.thumbnail_url.nil? && !seminar.thumbnail_url.empty?
-    .image(style="height:220px;background-color:white;")
-      %img.rounded.ui.medium.image(src="http://siebenlinden.de/fileadmin/img/seminar/#{seminar.thumbnail_url}")
+  .image(style="height:220px;background-color:white;overflow:hidden;")
+    %img.rounded.ui.medium.image(src="http://siebenlinden.de/fileadmin/img/seminar/#{seminar.thumbnail_file}")
   .content.main
     .ui.ribbon.label.bg-logolightgreen.large.seminardate
       %b
