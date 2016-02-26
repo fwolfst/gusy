@@ -11,6 +11,9 @@
     %link(rel="icon" href="/favicon.ico" type="image/x-icon")
     %link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
     %link(rel="stylesheet" type="text/css" class="ui" href="/stylesheets/gusy.css")
+    - base = "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
+    <link rel="alternate" href="#{base}#{request.path_info}" hreflang="de" />
+    <link rel="alternate" href="#{base}/en#{request.path_info}" hreflang="en" />
   %body.ui
     #no-foot
       #topheader
