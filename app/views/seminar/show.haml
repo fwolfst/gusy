@@ -4,7 +4,7 @@
 
 .ui.one.column.page.grid
   .column
-    %h2.ui.header.logored="Seminar: #{@seminar.name}"
+    %h2.ui.header.logored=@seminar.name
 
 %input(type="hidden" name="seminar-uuid" value="#{@seminar.uuid}")
 %input(type="hidden" name="seminar-shorturl" value="#{@seminar.shorturl}")
