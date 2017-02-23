@@ -44,6 +44,7 @@ module Gusy
 
       def registration_from_params params, seminar
         Registration.strict_param_setting = false
+        params['registration'] ||= {}
         registration = Registration.new params['registration']
         registration.seminar_uuid = seminar.uuid
         registration.accomodation_json = [*params['room_wish']].join(', ')
