@@ -13,6 +13,7 @@ Gusy::App.controllers :categories do
   get :list do
     @title = t('categories.list_heading')
     @categories = Category.all
+    @categories.reject!{|c| c.name.to_s.strip == '' }
     render 'list'
   end
 
